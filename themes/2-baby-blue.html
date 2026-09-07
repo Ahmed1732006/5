@@ -23,33 +23,33 @@
         }
 
         :root {
-            /* New refined palette: Sky Blue + Soft Gold + Elegant Purple */
-            --primary: #0EA5E9;
-            --primary-light: #7DD3FC;
-            --primary-dark: #0284C7;
+            /* Baby Blue Calm palette */
+            --primary: #7DD3FC;
+            --primary-light: #BAE6FD;
+            --primary-dark: #38BDF8;
             --primary-bg: #F0F9FF;
-            --gold: #FBBF24;
-            --gold-light: #FDE68A;
-            --gold-bg: #FFFBEB;
-            --purple: #8B5CF6;
-            --purple-light: #A78BFA;
-            --purple-bg: #F5F3FF;
-            --bg: #F8FAFC;
+            --gold: #C4B5FD;
+            --gold-light: #E0D7FF;
+            --gold-bg: #F5F3FF;
+            --purple: #5EEAD4;
+            --purple-light: #99F6E4;
+            --purple-bg: #F0FDFA;
+            --bg: #F6FBFF;
             --surface: #FFFFFF;
-            --surface-alt: #F1F5F9;
-            --border: #E2E8F0;
-            --border-light: #F1F5F9;
-            --text: #0F172A;
-            --text-secondary: #475569;
-            --text-muted: #94A3B8;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-            --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.09);
-            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
-            --radius: 16px;
-            --radius-sm: 10px;
+            --surface-alt: #EEF8FF;
+            --border: #DCEEFB;
+            --border-light: #EEF8FF;
+            --text: #1E3A5F;
+            --text-secondary: #5B7A93;
+            --text-muted: #9FBDD1;
+            --shadow-sm: 0 1px 4px rgba(56,189,248,.08);
+            --shadow: 0 6px 20px rgba(56,189,248,.10);
+            --shadow-md: 0 12px 34px rgba(56,189,248,.13);
+            --shadow-lg: 0 22px 56px rgba(56,189,248,.16);
+            --radius: 22px;
+            --radius-sm: 14px;
             --radius-full: 9999px;
-            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             --font-ar: 'Cairo', sans-serif;
             --font-en: 'Outfit', sans-serif;
         }
@@ -287,7 +287,7 @@
         }
         .manager-trigger-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex:none}
         .manager-trigger-wrap .manager-label{font-size:.57rem;font-weight:900;color:#a66a00;line-height:1;white-space:nowrap}
-        .manager-trigger{width:52px;height:52px}
+        .manager-trigger{width:30px!important;height:30px!important;border-radius:50%!important}
 
 
         .header-actions {
@@ -1650,15 +1650,11 @@
           .manager-page-actions{flex-direction:column}
         }
 
-        .manager-trigger{width:52px;height:52px;border-radius:50%;border:2px solid #f4c95d;background:linear-gradient(145deg,#fffaf0,#fff);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 5px 16px rgba(245,158,11,.16);cursor:pointer;position:relative;flex:none}
+        .manager-trigger{width:30px!important;height:30px!important;border-radius:50%;border:2px solid #f4c95d;background:linear-gradient(145deg,#fffaf0,#fff);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 5px 16px rgba(245,158,11,.16);cursor:pointer;position:relative;flex:none}
         .manager-trigger img{width:100%;height:100%;object-fit:cover}.manager-fallback{font-size:1.1rem;font-weight:900;color:#a66a00}.manager-crown{position:absolute;right:-2px;bottom:-2px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#f5b72b;color:#fff;border:2px solid var(--surface);font-size:9px}
-        .manager-modal{max-width:720px}.manager-hero{display:flex;align-items:center;gap:18px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#fff9e7,#f8fafc);border:1px solid #f2d78c;margin-bottom:18px}.manager-avatar-lg{width:112px;height:112px;border-radius:50%;overflow:hidden;background:#fff4d7;border:4px solid #fff;box-shadow:0 12px 30px rgba(15,23,42,.12);display:grid;place-items:center;font-size:2.2rem;color:#a66a00;font-weight:900;flex:none}.manager-avatar-lg img{width:100%;height:100%;object-fit:cover}.manager-hero h3{margin:0 0 7px;font-size:1.42rem}.manager-public-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#fff4cf;color:#966300;border:1px solid #efd37a;font-size:.72rem;font-weight:900}.manager-public-note{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:15px 16px;line-height:1.95;color:var(--text);font-size:.9rem;margin-top:12px;white-space:pre-wrap}.manager-title-list{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.manager-title-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,#fff7db,#fff);border:1px solid #efd179;color:#946200;font-size:.74rem;font-weight:900}.manager-editor-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}.manager-preview-box{display:flex;align-items:center;gap:12px;padding:14px;border:1px dashed #e9c86a;background:#fffaf0;border-radius:15px}.manager-preview-box small{display:block;color:var(--text-muted);font-size:.72rem;margin-top:3px}.manager-preview-avatar{width:74px;height:74px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow-md);background:#fff4d7;display:grid;place-items:center;color:#a66a00;font-weight:900;flex:none}.manager-preview-avatar img{width:100%;height:100%;object-fit:cover}.manager-title-editor{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.manager-title-btn{border:1px solid var(--border);background:var(--surface);color:var(--text-secondary);border-radius:999px;padding:7px 10px;font:inherit;font-size:.72rem;font-weight:800;cursor:pointer}.manager-title-btn.active{background:#fff6d9;border-color:#edcf72;color:#8a5a00}.manager-selected-title{display:inline-flex;gap:6px;align-items:center;border:1px solid #edd17d;background:#fffaf0;color:#8a5a00;border-radius:999px;padding:6px 9px;font-size:.72rem;font-weight:900;cursor:pointer}.welcome-manager-row{display:flex;align-items:center;gap:22px}.welcome-user-avatar.manager-aware{width:118px;height:118px;border-radius:50%;border:4px solid #fff;box-shadow:0 12px 30px rgba(15,23,42,.13)}.welcome-user-avatar.manager-aware img{width:100%;height:100%;object-fit:cover}.platform-manager-link{display:inline-flex;align-items:center;gap:7px;margin-top:10px;color:#996300;font-size:.76rem;font-weight:900;cursor:pointer;background:#fff8dd;border:1px solid #eed27c;border-radius:999px;padding:6px 10px}.platform-manager-link:hover{background:#fff2bc}@media(max-width:700px){.manager-editor-grid{grid-template-columns:1fr}.manager-hero{flex-direction:column;text-align:center}.manager-avatar-lg{width:96px;height:96px}.welcome-manager-row{gap:14px;flex-wrap:nowrap}.welcome-user-avatar.manager-aware{width:108px;height:108px;border-radius:20px}.header-brand .site-logo-image{width:36px;height:36px}.manager-trigger{width:66px;height:66px}}
+        .manager-modal{max-width:720px}.manager-hero{display:flex;align-items:center;gap:18px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#fff9e7,#f8fafc);border:1px solid #f2d78c;margin-bottom:18px}.manager-avatar-lg{width:112px;height:112px;border-radius:50%;overflow:hidden;background:#fff4d7;border:4px solid #fff;box-shadow:0 12px 30px rgba(15,23,42,.12);display:grid;place-items:center;font-size:2.2rem;color:#a66a00;font-weight:900;flex:none}.manager-avatar-lg img{width:100%;height:100%;object-fit:cover}.manager-hero h3{margin:0 0 7px;font-size:1.42rem}.manager-public-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:#fff4cf;color:#966300;border:1px solid #efd37a;font-size:.72rem;font-weight:900}.manager-public-note{background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:15px 16px;line-height:1.95;color:var(--text);font-size:.9rem;margin-top:12px;white-space:pre-wrap}.manager-title-list{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.manager-title-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,#fff7db,#fff);border:1px solid #efd179;color:#946200;font-size:.74rem;font-weight:900}.manager-editor-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}.manager-preview-box{display:flex;align-items:center;gap:12px;padding:14px;border:1px dashed #e9c86a;background:#fffaf0;border-radius:15px}.manager-preview-box small{display:block;color:var(--text-muted);font-size:.72rem;margin-top:3px}.manager-preview-avatar{width:74px;height:74px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow-md);background:#fff4d7;display:grid;place-items:center;color:#a66a00;font-weight:900;flex:none}.manager-preview-avatar img{width:100%;height:100%;object-fit:cover}.manager-title-editor{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.manager-title-btn{border:1px solid var(--border);background:var(--surface);color:var(--text-secondary);border-radius:999px;padding:7px 10px;font:inherit;font-size:.72rem;font-weight:800;cursor:pointer}.manager-title-btn.active{background:#fff6d9;border-color:#edcf72;color:#8a5a00}.manager-selected-title{display:inline-flex;gap:6px;align-items:center;border:1px solid #edd17d;background:#fffaf0;color:#8a5a00;border-radius:999px;padding:6px 9px;font-size:.72rem;font-weight:900;cursor:pointer}.welcome-manager-row{display:flex;align-items:center;gap:22px}.welcome-user-avatar.manager-aware{width:118px;height:118px;border-radius:50%;border:4px solid #fff;box-shadow:0 12px 30px rgba(15,23,42,.13)}.welcome-user-avatar.manager-aware img{width:100%;height:100%;object-fit:cover}.platform-manager-link{display:inline-flex;align-items:center;gap:7px;margin-top:10px;color:#996300;font-size:.76rem;font-weight:900;cursor:pointer;background:#fff8dd;border:1px solid #eed27c;border-radius:999px;padding:6px 10px}.platform-manager-link:hover{background:#fff2bc}@media(max-width:700px){.manager-editor-grid{grid-template-columns:1fr}.manager-hero{flex-direction:column;text-align:center}.manager-avatar-lg{width:96px;height:96px}.welcome-manager-row{gap:14px;flex-wrap:nowrap}.welcome-user-avatar.manager-aware{width:108px;height:108px;border-radius:20px}.header-brand .site-logo-image{width:36px;height:36px}.manager-trigger{width:30px!important;height:30px!important}}
 
 
-        .first-welcome-highlight{margin:16px auto 8px;max-width:620px;padding:15px 18px;border:1px solid rgba(14,165,233,.2);border-radius:16px;background:linear-gradient(135deg,#eff8ff,#fff9ee);font-size:1.05rem;font-weight:900;line-height:1.8;color:var(--text)}
-        .admin-message-media{display:block;width:100%;max-height:380px;object-fit:contain;border-radius:16px;margin-top:13px;background:#0b1220}
-        .admin-message-image{background:#f8fafc}
-        .user-message-item p{white-space:pre-wrap;line-height:1.9}
         /* ─── Welcome video gate ─── */
         .welcome-video-overlay{position:fixed;inset:0;z-index:99999;background:#05070b;display:none;align-items:center;justify-content:center;overflow:hidden;touch-action:none}
         .welcome-video-overlay.show{display:flex}
@@ -1726,22 +1722,87 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
         .header-brand .mark{display:flex!important;align-items:center!important;gap:9px!important}
         .header-brand .site-logo-image{width:42px!important;height:42px!important;border-radius:12px!important;object-fit:cover!important;display:block!important;flex:none!important}
         .manager-trigger-wrap{min-width:58px}
-        .manager-trigger{width:54px!important;height:54px!important}
+        .manager-trigger{width:30px!important;height:30px!important}
         .manager-trigger img{width:100%!important;height:100%!important;object-fit:cover!important}
-        .text-format-tools{align-items:center}
-        @media(max-width:700px){.welcome-user-avatar.manager-aware{width:116px!important;height:116px!important;border-radius:50%!important}.welcome-greeting-row{gap:14px!important}.header-brand .site-logo-image{width:36px!important;height:36px!important}.manager-trigger{width:50px!important;height:50px!important}}
-
-        /* Enhanced admin welcome/video/color controls */
-        .color-swatch{width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:11px!important;position:relative!important;overflow:hidden!important;border:1px solid var(--border,#dbe5ef)!important;background:var(--surface,#fff)!important;cursor:pointer!important}
+        
+        .text-format-tools{display:flex!important;flex-wrap:wrap;gap:8px;padding:8px 0}
+        .text-format-tools button{font-family:var(--font-ar);font-weight:800!important;border:1px solid var(--border)!important;border-radius:12px!important;background:var(--surface)!important;color:var(--text)!important;min-height:38px;padding:8px 12px!important;cursor:pointer}
+        .text-format-tools button.active{outline:3px solid rgba(14,165,233,.16);border-color:#0ea5e9!important;box-shadow:0 4px 12px rgba(14,165,233,.12)}
+        .color-swatch{width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:11px!important;position:relative;overflow:hidden}
         .color-swatch::after{content:"";position:absolute;inset:7px;border-radius:7px}
-        .color-swatch.active{outline:2px solid var(--primary,#0ea5e9);outline-offset:2px;box-shadow:0 0 0 3px rgba(14,165,233,.12)}
-        .color-swatch.color-white::after{background:#fff;border:1px solid #cbd5e1}.color-swatch.color-black::after{background:#111827}.color-swatch.color-gold::after{background:#c58a13}.color-swatch.color-red::after{background:#dc2626}.color-swatch.color-purple::after{background:#7c3aed}.color-swatch.color-sky::after{background:#0ea5e9}.color-swatch.color-green::after{background:#16a34a}.color-swatch.color-blue::after{background:#2563eb}.color-swatch.color-orange::after{background:#f97316}.color-swatch.color-teal::after{background:#14b8a6}.color-swatch.color-pink::after{background:#db2777}.color-swatch.color-violet::after{background:#6d28d9}.color-swatch.color-cyan::after{background:#0891b2}.color-swatch.color-lime::after{background:#84cc16}.color-swatch.color-brown::after{background:#92400e}.color-swatch.color-rose::after{background:#e11d48}
-        .welcome-user-action{border-color:rgba(14,165,233,.30)!important;background:linear-gradient(135deg,#eff8ff,#eaf7ff)!important;color:#0369a1!important}
-        .admin-welcome-modal{max-width:620px!important}.welcome-modal-icon{background:linear-gradient(135deg,#e0f2fe,#eef2ff)!important;color:#2563eb!important}.welcome-target-chip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface-alt,#f8fafc);margin:12px 0}.welcome-target-chip span{color:var(--text-muted);font-size:.74rem}.welcome-ready-preview{padding:18px;border-radius:17px;background:linear-gradient(135deg,var(--primary-bg,#eff8ff),#fff);border:1px solid var(--primary-light,#dbeafe);text-align:right}.welcome-ready-preview h4{margin:0;font-size:1.15rem;color:var(--text)}.welcome-ready-preview p{margin:9px 0 0;color:var(--text-secondary);line-height:1.9;font-size:.96rem}.welcome-mode-grid{margin:12px 0}.welcome-video-library-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;align-items:stretch;margin-top:12px}.welcome-video-library-grid select{width:100%}.welcome-video-library-preview{min-height:150px;border:1px solid var(--border);border-radius:16px;background:#08111c;display:grid;place-items:center;overflow:hidden}.welcome-video-library-preview video{width:100%;height:100%;min-height:150px;max-height:220px;object-fit:contain;background:#000}.welcome-video-empty-preview{display:flex;flex-direction:column;align-items:center;gap:8px;color:#94a3b8;font-size:.8rem}.welcome-video-empty-preview i{font-size:2rem}.first-welcome-card{max-width:600px!important;border:1px solid var(--border)!important;background:linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f6fbff))!important;box-shadow:0 30px 100px rgba(15,23,42,.20)!important}.first-welcome-top{display:flex;align-items:center;gap:18px;padding:6px 2px 18px}.first-welcome-avatar{width:102px;height:102px;border-radius:28px;overflow:hidden;background:var(--primary-bg,#eff6ff);border:3px solid var(--surface,#fff);box-shadow:0 14px 35px rgba(15,23,42,.14);display:grid;place-items:center;color:var(--primary);font-size:2rem;font-weight:900;flex:none}.first-welcome-avatar img{width:100%;height:100%;object-fit:cover}.first-welcome-title-wrap{flex:1;text-align:right}.first-welcome-kicker{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:var(--surface-alt,#f8fafc);border:1px solid var(--border);color:var(--primary);font-size:.72rem;font-weight:900;margin-bottom:7px}.first-welcome-title-wrap h3{margin:0!important;font-size:1.5rem!important;line-height:1.6;color:var(--text)!important}.first-welcome-highlight{margin:0!important;padding:16px 18px!important;border-radius:17px!important;background:linear-gradient(135deg,var(--primary-bg,#eff8ff),#fff)!important;border:1px solid var(--primary-light,#dbeafe)!important;color:var(--text)!important;font-size:1.08rem!important;font-weight:900!important;line-height:1.9!important}.first-welcome-sub{font-size:.95rem!important;line-height:1.9!important;margin:12px 2px!important}.first-welcome-start{min-width:180px}.um-user-card .um-card-actions{display:flex;flex-wrap:wrap;gap:7px}
-        @media(max-width:700px){.welcome-video-library-grid{grid-template-columns:1fr}.first-welcome-top{align-items:flex-start;gap:12px}.first-welcome-avatar{width:82px;height:82px;border-radius:22px}.first-welcome-title-wrap h3{font-size:1.16rem!important}.first-welcome-highlight{font-size:.98rem!important}.welcome-target-chip{align-items:flex-start}.admin-welcome-modal{width:min(94vw,620px)!important}}
+        .color-swatch.color-white::after{background:#fff;border:1px solid #cbd5e1}
+        .color-swatch.color-black::after{background:#111827}
+        .color-swatch.color-gold::after{background:#c58a13}
+        .color-swatch.color-red::after{background:#dc2626}
+        .color-swatch.color-purple::after{background:#7c3aed}
+        .color-swatch.color-sky::after{background:#0ea5e9}
+        .manager-name-format-tools{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0 0}
+        .manager-name-format-tools button{border:1px solid #d8dee8;background:#fff;border-radius:12px;min-height:38px;padding:8px 11px;font-family:var(--font-ar);font-weight:800;cursor:pointer}
+        .manager-name-format-tools button.active{border-color:#d4a72c;background:#fff8dd;color:#8a6400;box-shadow:0 4px 12px rgba(180,130,20,.12)}
+        .manager-name-color{width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:11px!important;position:relative;overflow:hidden}
+        .manager-name-color::after{content:"";position:absolute;inset:7px;border-radius:7px}
+        .manager-name-color.white::after{background:#fff;border:1px solid #cbd5e1}
+        .manager-name-color.black::after{background:#111827}
+        .manager-name-color.gold::after{background:#c58a13}
+        .manager-name-color.red::after{background:#dc2626}
+        .manager-name-color.purple::after{background:#7c3aed}
+        .manager-name-color.sky::after{background:#0ea5e9}
+        .manager-format-caption{font-size:.74rem;color:var(--text-muted);margin-bottom:4px}
+
+        @media(max-width:700px){.welcome-user-avatar.manager-aware{width:116px!important;height:116px!important;border-radius:50%!important}.welcome-greeting-row{gap:14px!important}.header-brand .site-logo-image{width:36px!important;height:36px!important}.manager-trigger{width:30px!important;height:30px!important}}
+
+/* first-welcome modern layout */
+.first-welcome-card{max-width:600px!important;border:1px solid var(--border)!important;background:linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f6fbff))!important;box-shadow:0 30px 100px rgba(15,23,42,.20)!important}
+.first-welcome-top{display:flex;align-items:center;gap:18px;padding:6px 2px 18px}
+.first-welcome-avatar{width:102px;height:102px;border-radius:28px;overflow:hidden;background:var(--primary-bg,#eff6ff);border:3px solid var(--surface,#fff);box-shadow:0 14px 35px rgba(15,23,42,.14);display:grid;place-items:center;color:var(--primary);font-size:2rem;font-weight:900;flex:none}
+.first-welcome-avatar img{width:100%;height:100%;object-fit:cover}
+.first-welcome-title-wrap{flex:1;text-align:right}
+.first-welcome-kicker{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:var(--surface-alt,#f8fafc);border:1px solid var(--border);color:var(--primary);font-size:.72rem;font-weight:900;margin-bottom:7px}
+.first-welcome-title-wrap h3{margin:0!important;font-size:1.5rem!important;line-height:1.6;color:var(--text)!important}
+.first-welcome-highlight{margin:0!important;padding:16px 18px!important;border-radius:17px!important;background:linear-gradient(135deg,var(--primary-bg,#eff8ff),#fff)!important;border:1px solid var(--primary-light,#dbeafe)!important;color:var(--text)!important;font-size:1.08rem!important;font-weight:900!important;line-height:1.9!important}
+.first-welcome-sub{font-size:.95rem!important;line-height:1.9!important;margin:12px 2px!important}
+.first-welcome-start{min-width:180px}
+@media(max-width:700px){.first-welcome-top{align-items:flex-start;gap:12px}.first-welcome-avatar{width:82px;height:82px;border-radius:22px}.first-welcome-title-wrap h3{font-size:1.16rem!important}.first-welcome-highlight{font-size:.98rem!important}}
+
+</style>
+
+<style id="theme-flourish-babyblue">
+  body{ background-image: radial-gradient(ellipse at 20% 0%, rgba(125,211,252,.10), transparent 50%), radial-gradient(ellipse at 85% 15%, rgba(196,181,253,.09), transparent 45%), radial-gradient(ellipse at 50% 100%, rgba(94,234,212,.08), transparent 50%);
+    animation: skyBreathe 14s ease-in-out infinite; background-attachment:fixed;}
+  @keyframes skyBreathe{0%,100%{background-size:100% 100%,100% 100%,100% 100%}50%{background-size:115% 115%,115% 115%,115% 115%}}
+  .cloud{position:fixed;pointer-events:none;z-index:0;opacity:.55;filter:blur(1px);animation:cloudDrift 26s ease-in-out infinite;}
+  @keyframes cloudDrift{0%,100%{transform:translateX(0) translateY(0)}50%{transform:translateX(28px) translateY(-10px)}}
+  .bubble{position:fixed;pointer-events:none;z-index:0;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(186,230,253,.25) 60%, transparent 75%);
+    border:1px solid rgba(255,255,255,.6); animation: bubbleRise 12s ease-in-out infinite;}
+  @keyframes bubbleRise{0%{transform:translateY(20px);opacity:0}15%{opacity:.8}85%{opacity:.8}100%{transform:translateY(-140px);opacity:0}}
+  .twinkle{position:fixed;pointer-events:none;z-index:0;color:#93C5FD;opacity:.5;animation:twinkleFloat 8s ease-in-out infinite;}
+  @keyframes twinkleFloat{0%,100%{opacity:.25;transform:translateY(0) scale(1)}50%{opacity:.75;transform:translateY(-14px) scale(1.15)}}
+  .sub-card, .box-card, .add-card, .profile-card, .card, .um-user-card{
+    transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease !important;
+  }
+  .sub-card:hover, .box-card:hover, .add-card:hover, .profile-card:hover, .card:hover{
+    transform:translateY(-6px) !important; box-shadow:0 20px 44px rgba(56,189,248,.16) !important;
+  }
+  .btn-save{background:linear-gradient(135deg,#7DD3FC,#5EEAD4) !important;border:none !important;color:#0C2A43 !important;}
+  ::selection{background:#BAE6FD;color:#1E3A5F;}
+  ::-webkit-scrollbar-thumb{background:#BAE6FD !important;}
 </style>
 </head>
 <body>
+<div class="cloud" style="top:8%;left:6%;width:140px;height:46px;background:radial-gradient(ellipse,rgba(255,255,255,.9),transparent 70%);"></div>
+<div class="cloud" style="top:16%;left:70%;width:180px;height:56px;background:radial-gradient(ellipse,rgba(255,255,255,.85),transparent 70%);animation-delay:-9s;"></div>
+<div class="cloud" style="top:85%;left:40%;width:150px;height:48px;background:radial-gradient(ellipse,rgba(255,255,255,.8),transparent 70%);animation-delay:-16s;"></div>
+<div class="bubble" style="width:14px;height:14px;bottom:5%;left:15%;animation-delay:-1s;"></div>
+<div class="bubble" style="width:10px;height:10px;bottom:8%;left:35%;animation-delay:-4s;"></div>
+<div class="bubble" style="width:18px;height:18px;bottom:3%;left:60%;animation-delay:-7s;"></div>
+<div class="bubble" style="width:9px;height:9px;bottom:10%;left:80%;animation-delay:-2.5s;"></div>
+<div class="bubble" style="width:12px;height:12px;bottom:6%;left:50%;animation-delay:-9s;"></div>
+<div class="bubble" style="width:8px;height:8px;bottom:12%;left:92%;animation-delay:-5.5s;"></div>
+<div class="twinkle" style="top:20%;left:20%;font-size:12px;"><i class="fa-solid fa-star"></i></div>
+<div class="twinkle" style="top:35%;left:85%;font-size:10px;animation-delay:-3s;"><i class="fa-regular fa-snowflake"></i></div>
+<div class="twinkle" style="top:60%;left:8%;font-size:11px;animation-delay:-5s;"><i class="fa-solid fa-star"></i></div>
+<div class="twinkle" style="top:50%;left:55%;font-size:10px;animation-delay:-6.5s;"><i class="fa-regular fa-moon"></i></div>
+
 
     <div id="app"></div>
 
@@ -1772,7 +1833,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             pendingUserMessages: [],
             platformManager: {id:1,name:'مدير المنصة',titles:[],message:'أهلًا بيكم في المنصة ✨',avatar:null},
                 welcomeVideoCampaign: null,
-                welcomeVideoLibrary: [],
                 welcomeVideoShown: false,
             managerPageAvatarFile: null,
             usersLoading: false,
@@ -2166,8 +2226,8 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
               <div class="header-actions">
                 ${isAdmin() ? `<button type="button" class="admin-panel-trigger" data-act="open-admin-panel" title="إدارة المستخدمين" aria-label="إدارة المستخدمين"><i class="fas fa-users-cog"></i></button>` : ''}
                 <div class="manager-trigger-wrap">
-                  <button type="button" class="manager-trigger" data-act="open-manager-profile" title="ملك المنصة" aria-label="ملك المنصة">${state.platformManager?.avatar ? `<img src="${escapeHtml(state.platformManager.avatar)}" alt="ملك المنصة">` : `<span class="manager-fallback">م</span>`}<span class="manager-crown">♛</span></button>
-                  <span class="manager-label">ملك المنصة</span>
+                  <button type="button" class="manager-trigger" data-act="open-manager-profile" title="مالك المنصة" aria-label="مالك المنصة">${state.platformManager?.avatar ? `<img src="${escapeHtml(state.platformManager.avatar)}" alt="مالك المنصة">` : `<span class="manager-fallback">م</span>`}<span class="manager-crown">♛</span></button>
+                  <span class="manager-label">مالك المنصة</span>
                 </div>
                 <button type="button" class="profile-trigger" data-act="open-profile" aria-label="فتح الملف الشخصي">
                   <div class="avatar">${avatarHtml}</div>
@@ -2442,7 +2502,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 <button type="button" class="manager-back" data-act="go-home" title="العودة للرئيسية"><i class="fas fa-arrow-right"></i></button>
                 <div>
                   <h2>مدير المنصة</h2>
-                  <p>الملف العام الظاهر لكل أعضاء المنصة</p>
+                  <p></p>
                 </div>
               </div>
 
@@ -2450,7 +2510,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 <div class="manager-page-hero">
                   <div class="manager-page-avatar">${avatar}</div>
                   <div class="manager-page-identity">
-                    <span class="manager-page-kicker"><i class="fas fa-crown"></i> ملك المنصة · الملف العام</span>
+                    <span class="manager-page-kicker"><i class="fas fa-crown"></i> ملك المنصة  </span>
                     <h3>${escapeHtml(pm.name || 'مدير المنصة')}</h3>
                     <div class="manager-page-titles">
                       ${titles.map(t => `<span class="manager-page-title-chip">✦ ${escapeHtml(t)}</span>`).join('')}
@@ -2461,10 +2521,21 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
 
                 ${owner ? `
                 <div class="manager-page-editor">
-                  <div class="manager-page-editor-title"><i class="fas fa-pen-to-square"></i> إعدادات الملف العام</div>
+                  <div class="manager-page-editor-title"><i class="fas fa-pen-to-square"></i> إعدادات ملك المنصة</div>
                   <div class="manager-page-editor-grid">
                     <div>
-                      <div class="field"><label>الاسم الظاهر</label><input id="manager-page-name" value="${escapeHtml(pm.name || 'مدير المنصة')}" maxlength="80"></div>
+                      <div class="field"><label>الاسم الظاهر</label><input id="manager-page-name" value="${escapeHtml(pm.name || 'مدير المنصة')}" maxlength="80">
+                        <div class="manager-format-caption">تنسيق الاسم</div>
+                        <div class="manager-name-format-tools">
+                          <button type="button" id="manager-name-bold-toggle" class="${pm.name_bold===false?'':'active'}">𝗕 عريض</button>
+                          <button type="button" class="manager-name-color white ${pm.name_color==='#ffffff'?'active':''}" data-manager-name-color="#ffffff" title="أبيض"></button>
+                          <button type="button" class="manager-name-color black ${(!pm.name_color||pm.name_color==='#111827')?'active':''}" data-manager-name-color="#111827" title="أسود"></button>
+                          <button type="button" class="manager-name-color gold ${pm.name_color==='#c58a13'?'active':''}" data-manager-name-color="#c58a13" title="ذهبي"></button>
+                          <button type="button" class="manager-name-color red ${pm.name_color==='#dc2626'?'active':''}" data-manager-name-color="#dc2626" title="أحمر"></button>
+                          <button type="button" class="manager-name-color purple ${pm.name_color==='#7c3aed'?'active':''}" data-manager-name-color="#7c3aed" title="بنفسجي"></button>
+                          <button type="button" class="manager-name-color sky ${pm.name_color==='#0ea5e9'?'active':''}" data-manager-name-color="#0ea5e9" title="سماوي"></button>
+                        </div>
+                      </div>
                       <div class="field"><label>الصورة العامة</label>
                         <div class="manager-page-upload">
                           <div class="manager-page-upload-preview" id="manager-page-avatar-preview">${avatar}</div>
@@ -2621,7 +2692,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 state.users=profilesRes.data||[];
                 state.userRequests=requestsRes.data||[];
                 state.adminMessages=messagesRes.data||[];
-                await loadWelcomeVideoLibrary();
                 try{
                     const currentUserId = state.user?.id;
                     if(!currentUserId) throw new Error('انتهت جلسة الدخول.');
@@ -2685,7 +2755,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                       ${st.key!=='admin' && st.key!=='revoked' ? `<button data-act="user-revoke" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-ban"></i> رفض / إيقاف</button>`:''}
                       ${st.key==='revoked' ? `<button class="success" data-act="user-approve" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-rotate-left"></i> إعادة تفعيل</button>`:''}
                       ${st.key==='approved' ? `<button data-act="user-reapply" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-user-clock"></i> طلب إذن من جديد</button><button data-act="user-force-password" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-key"></i> تغيير كلمة السر عند الدخول</button>`:''}
-                      ${st.key!=='admin' ? `<button class="welcome-user-action" data-act="user-welcome" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-hand-sparkles"></i> ترحيب أول مرة</button>`:''}${st.key!=='admin' ? `<button data-act="user-edit" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-user-pen"></i> تعديل</button>`:''}
+                      ${st.key!=='admin' ? `<button data-act="user-edit" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-user-pen"></i> تعديل</button>`:''}
                       ${st.key!=='admin' ? `<button class="danger" data-act="user-delete" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-trash"></i> حذف</button>`:''}
                     </div>
                   </article>`;
@@ -2771,23 +2841,10 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     <small class="access-help">اضغط Ctrl/⌘ لاختيار أكثر من شخص.</small>
                   </div>
                 </div>
-                <div class="welcome-video-library-grid">
-                  <div class="field">
-                    <label>الفيديو الموجود في المكتبة</label>
-                    <select id="welcome-video-library-select">
-                      <option value="">استخدم الفيديو الحالي / لا تغيير</option>
-                      ${(state.welcomeVideoLibrary||[]).map(v=>`<option value="${escapeHtml(v.path)}" ${(state.welcomeVideoCampaign?.video_path||'')===v.path?'selected':''}>${escapeHtml(v.name)}</option>`).join('')}
-                    </select>
-                    <small class="access-help">اختار أي فيديو مرفوع بالفعل بدل ما ترفعه من جديد.</small>
-                  </div>
-                  <div class="welcome-video-library-preview">
-                    ${state.welcomeVideoCampaign?.video_path ? `<video id="welcome-video-admin-preview" controls playsinline preload="metadata" src="${escapeHtml(publicStorageUrl('welcome-videos',state.welcomeVideoCampaign.video_path))}"></video>` : `<div class="welcome-video-empty-preview"><i class="fas fa-film"></i><span>لا يوجد فيديو محدد</span></div>`}
-                  </div>
-                </div>
                 <div class="field" style="margin-top:12px">
-                  <label>رفع فيديو جديد</label>
-                  <input type="file" id="welcome-video-file" accept="video/mp4,video/webm,video/quicktime,video/*">
-                  <small class="access-help">رفع فيديو جديد يضيفه للمكتبة. ويمكن اختيار فيديو موجود من القائمة بعد ذلك.</small>
+                  <label>استبدال الفيديو</label>
+                  <input type="file" id="welcome-video-file" accept="video/mp4,video/webm,video/*">
+                  <small class="access-help">لو لم تختار ملفًا، يظل الفيديو الحالي كما هو. الفيديو يعمل فقط بعد أن يرفعه الأدمن ويقوم بتفعيله.</small>
                 </div>
                 <div class="welcome-video-admin-controls">
                   <button class="btn-save" data-act="save-welcome-video"><i class="fas fa-floppy-disk"></i> حفظ إعدادات الفيديو</button>
@@ -2867,31 +2924,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 return `<div class=\"overlay\" data-act=\"close-modal-overlay\"><div class=\"modal um-modal um-details-modal\" data-stop=\"1\"><div class=\"um-modal-icon\"><i class=\"fas fa-clock-rotate-left\"></i></div><h3>سجل مرات الدخول</h3><p class=\"um-modal-sub\">${escapeHtml(userDisplayName(u))} — ${escapeHtml(String(u.login_count??0))} مرات دخول.</p><div class=\"login-history-list\">${list}</div><div class=\"modal-actions\"><button class=\"btn-cancel\" data-act=\"close-modal\">إغلاق</button></div></div></div>`;
             }
 
-            if (m.kind === 'user-welcome') {
-                const u=m.user||{};
-                const readyTitle=`أهلا بيك يا ${userDisplayName(u)} 👋`;
-                const readyBody='نورتنا ✨ نتمنى تلاقي كل اللي محتاجه هنا وتكون تجربتك داخل المنصة أسهل وأفضل.';
-                const custom=m.mode==='custom';
-                return `
-                <div class="overlay" data-act="close-modal-overlay">
-                  <div class="modal um-modal admin-welcome-modal" data-stop="1">
-                    <div class="um-modal-icon welcome-modal-icon"><i class="fas fa-hand-sparkles"></i></div>
-                    <h3>ترحيب أول مرة</h3>
-                    <p class="um-modal-sub">هتظهر الرسالة للحساب المحدد مرة واحدة عند فتحه.</p>
-                    <div class="welcome-target-chip"><i class="fas fa-user"></i><strong>${escapeHtml(userDisplayName(u))}</strong><span>${escapeHtml(u.email||'بدون بريد')}</span></div>
-                    <div class="message-target-grid welcome-mode-grid">
-                      <button type="button" class="message-target ${!custom?'active':''}" data-act="welcome-mode" data-mode="ready"><i class="fas fa-wand-magic-sparkles"></i> الترحيب الجاهز</button>
-                      <button type="button" class="message-target ${custom?'active':''}" data-act="welcome-mode" data-mode="custom"><i class="fas fa-pen"></i> أكتب رسالتي</button>
-                    </div>
-                    ${!custom ? `<div class="welcome-ready-preview"><h4>${escapeHtml(readyTitle)}</h4><p>${escapeHtml(readyBody)}</p></div>` : `
-                    <div class="field"><label>عنوان الرسالة</label><input id="welcome-message-title" maxlength="120" placeholder="اكتب عنوان الترحيب"></div>
-                    <div class="field"><label>نص الرسالة</label><textarea id="welcome-message-body" rows="7" maxlength="2000" placeholder="اكتب الرسالة التي ستظهر للمستخدم..."></textarea></div>
-                    <div class="field"><label>صورة أو فيديو (اختياري)</label><input id="welcome-message-media" type="file" accept="image/png,image/jpeg,image/gif,video/mp4,video/webm,video/quicktime"><small class="field-hint">PNG / JPG / GIF / MP4 / WEBM / MOV — حد أقصى 25 ميجابايت.</small></div>`}
-                    <div class="modal-actions"><button class="btn-save" data-act="send-user-welcome">إرسال الترحيب مرة واحدة</button><button class="btn-cancel" data-act="close-modal">إلغاء</button></div>
-                  </div>
-                </div>`;
-            }
-
             if (m.kind === 'compose-user-message') {
                 const target=m.targetUserId||'all';
                 return `
@@ -2907,7 +2939,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     ${target!=='all' ? `<div class="field"><label>اختر الحساب</label><select id="message-target-user">${state.users.filter(x=>x.role!=='admin').map(u=>`<option value="${escapeHtml(u.id)}" ${String(target)===String(u.id)?'selected':''}>${escapeHtml(userDisplayName(u))} — ${escapeHtml(u.email||'بدون بريد')}</option>`).join('')}</select></div>`:''}
                     <div class="field"><label>عنوان الرسالة</label><input id="admin-message-title" maxlength="120" placeholder="مثال: تنبيه من إدارة المنصة"></div>
                     <div class="field"><label>نص الرسالة</label><textarea id="admin-message-body" rows="7" maxlength="2000" placeholder="اكتب الرسالة التي ستظهر عند فتح الحساب..."></textarea></div>
-                    <div class="field"><label>مرفق اختياري</label><input id="admin-message-media" type="file" accept="image/png,image/jpeg,image/gif,video/mp4,video/webm,video/quicktime"><small class="field-hint">الصيغ: PNG / JPG / GIF / MP4 / WEBM / MOV — حد أقصى 25 ميجابايت.</small></div>
                     <div class="field"><label>عدد مرات ظهور الرسالة</label><select id="admin-message-views"><option value="1" selected>مرة واحدة فقط</option><option value="2">مرتين</option><option value="3">3 مرات</option><option value="5">5 مرات</option><option value="10">10 مرات</option><option value="20">20 مرة</option><option value="unlimited">بدون حد</option></select><small class="field-hint">اختياري: الرسالة تختفي تلقائيًا بعد العدد الذي تختاره.</small></div>
                     <div class="modal-actions"><button class="btn-save" data-act="send-user-message">إرسال الرسالة</button><button class="btn-cancel" data-act="close-modal">إلغاء</button></div>
                   </div>
@@ -2954,24 +2985,12 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
 
             if (m.kind === 'user-message') {
                 const rows=Array.isArray(m.messages)?m.messages:[];
-                const renderBody=(body)=>{
-                    const raw=String(body||'');
-                    const match=raw.match(/\[\[MIDAD_MEDIA\|([^|]+)\|([^|]+)\]\]/);
-                    const text=raw.replace(/\[\[MIDAD_MEDIA\|[^|]+\|[^|]+\]\]/g,'').trim();
-                    let media='';
-                    if(match){
-                      const type=match[1], path=decodeURIComponent(match[2]);
-                      const url=sb.storage.from('admin-messages').getPublicUrl(path).data.publicUrl;
-                      media=type==='video'?`<video class="admin-message-media" controls playsinline preload="metadata" src="${escapeHtml(url)}"></video>`:`<img class="admin-message-media admin-message-image" src="${escapeHtml(url)}" alt="مرفق">`;
-                    }
-                    return `${text?`<p>${escapeHtml(text)}</p>`:''}${media}`;
-                };
                 return `<div class="user-message-overlay" data-stop="1">
                   <div class="user-message-card">
                     <div class="umc-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h2>رسالة من الإدارة</h2>
-                    <p class="umc-sub">عندك رسالة جديدة.</p>
-                    ${rows.map(r=>`<div class="user-message-item"><h3>${escapeHtml(r.title||'رسالة من الإدارة')}</h3>${renderBody(r.body)}</div>`).join('')}
+                    <h2>رسالة من إدارة المنصة</h2>
+                    <p class="umc-sub">رسالة مهمة من الإدارة.</p>
+                    ${rows.map(r=>`<div class="user-message-item"><h3>${escapeHtml(r.title||'رسالة من الإدارة')}</h3><p>${escapeHtml(r.body||'')}</p></div>`).join('')}
                     <button class="user-message-close" data-act="close-modal">حسنًا، فهمت</button>
                   </div>
                 </div>`;
@@ -3122,16 +3141,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     <button type="button" class="color-swatch color-red ${m.textColor==='#dc2626'?'active':''}" data-text-color="#dc2626" title="أحمر"></button>
                     <button type="button" class="color-swatch color-purple ${m.textColor==='#7c3aed'?'active':''}" data-text-color="#7c3aed" title="بنفسجي"></button>
                     <button type="button" class="color-swatch color-sky ${m.textColor==='#0ea5e9'?'active':''}" data-text-color="#0ea5e9" title="سماوي"></button>
-                    <button type="button" class="color-swatch color-green ${m.textColor==='#16a34a'?'active':''}" data-text-color="#16a34a" title="أخضر"></button>
-                    <button type="button" class="color-swatch color-blue ${m.textColor==='#2563eb'?'active':''}" data-text-color="#2563eb" title="أزرق"></button>
-                    <button type="button" class="color-swatch color-orange ${m.textColor==='#f97316'?'active':''}" data-text-color="#f97316" title="برتقالي"></button>
-                    <button type="button" class="color-swatch color-teal ${m.textColor==='#14b8a6'?'active':''}" data-text-color="#14b8a6" title="فيروزي"></button>
-                    <button type="button" class="color-swatch color-pink ${m.textColor==='#db2777'?'active':''}" data-text-color="#db2777" title="وردي"></button>
-                    <button type="button" class="color-swatch color-violet ${m.textColor==='#6d28d9'?'active':''}" data-text-color="#6d28d9" title="بنفسجي غامق"></button>
-                    <button type="button" class="color-swatch color-cyan ${m.textColor==='#0891b2'?'active':''}" data-text-color="#0891b2" title="سماوي غامق"></button>
-                    <button type="button" class="color-swatch color-lime ${m.textColor==='#84cc16'?'active':''}" data-text-color="#84cc16" title="ليموني"></button>
-                    <button type="button" class="color-swatch color-brown ${m.textColor==='#92400e'?'active':''}" data-text-color="#92400e" title="بني"></button>
-                    <button type="button" class="color-swatch color-rose ${m.textColor==='#e11d48'?'active':''}" data-text-color="#e11d48" title="وردي داكن"></button>
                   </div>
                 </div>
                 <div class="content-access-panel">
@@ -3228,16 +3237,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 if(box) box.classList.toggle('show', wvAudience.value==='selected');
               });
             }
-            const wvLibrary=document.getElementById('welcome-video-library-select');
-            if(wvLibrary){
-              wvLibrary.addEventListener('change',()=>{
-                const v=document.getElementById('welcome-video-admin-preview');
-                const path=wvLibrary.value||state.welcomeVideoCampaign?.video_path||'';
-                if(!v) return;
-                if(path){v.src=publicStorageUrl('welcome-videos',path);v.style.display='block';} else {v.removeAttribute('src');v.style.display='none';}
-              });
-            }
-
             const vis = document.getElementById('content-visibility');
             if(vis){ vis.addEventListener('change',()=>{ const box=document.querySelector('.access-users-field'); if(box) box.style.display=vis.value==='selected'?'block':'none'; if(state.modal) state.modal.visibilityMode=vis.value; }); }
             const boldToggle=document.getElementById('text-bold-toggle');
@@ -3259,7 +3258,29 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             state.modal.managerAvatarFile=f; state.modal.managerAvatar=URL.createObjectURL(f); render();
         }
 
-        function onManagerPageAvatarChange(e){
+        
+function attachManagerNameFormatEvents(){
+    const bold=document.getElementById('manager-name-bold-toggle');
+    if(bold){
+        bold.onclick=()=>{
+            const pm=state.platformManager||{};
+            pm.name_bold = pm.name_bold===false;
+            state.platformManager=pm;
+            bold.classList.toggle('active',pm.name_bold!==false);
+        };
+    }
+    document.querySelectorAll('[data-manager-name-color]').forEach(btn=>{
+        btn.onclick=()=>{
+            const color=btn.getAttribute('data-manager-name-color')||'#111827';
+            const pm=state.platformManager||{};
+            pm.name_color=color;
+            state.platformManager=pm;
+            document.querySelectorAll('[data-manager-name-color]').forEach(x=>x.classList.toggle('active',x===btn));
+        };
+    });
+}
+
+function onManagerPageAvatarChange(e){
             const f=e.target.files?.[0];
             if(!f || !f.type.startsWith('image/')) return showToast('اختر صورة صحيحة.','error');
             state.managerPageAvatarFile=f;
@@ -3328,18 +3349,8 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             // ─── Standard actions ───
             if (act === 'close-modal') {
                 const wasFirst = state.modal?.kind === 'first-welcome';
-                const pending = Array.isArray(state.pendingUserMessages) ? [...state.pendingUserMessages] : [];
                 closeModal();
-                if (wasFirst) {
-                    if (!state.user.phone) { openModal('phone-required',{}); }
-                    else if (pending.length) {
-                        openModal('user-message',{messages:pending});
-                        const ids=pending.map(x=>x.id).filter(Boolean);
-                        if(ids.length) void sb.rpc('mark_my_messages_read',{p_message_ids:ids}).then(()=>{},()=>{});
-                        state.pendingUserMessages=[];
-                    }
-                    else { void showWelcomeVideoOnce(); }
-                }
+                if (wasFirst) { if (!state.user.phone) openModal('phone-required',{}); else void showWelcomeVideoOnce(); }
                 return;
             }
             if (act === 'close-confirm') {
@@ -3382,16 +3393,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     if(u) openModal('user-edit',{user:u});
                     break;
                 }
-                case 'user-welcome': {
-                    const u=state.users.find(x=>String(x.id)===String(el.dataset.userId));
-                    if(u) openModal('user-welcome',{user:u,mode:'ready'});
-                    break;
-                }
-                case 'welcome-mode': {
-                    const u=state.modal?.user||state.users.find(x=>String(x.id)===String(state.modal?.userId));
-                    openModal('user-welcome',{user:u,mode:el.dataset.mode==='custom'?'custom':'ready'});
-                    break;
-                }
                 case 'compose-user-message': {
                     openModal('compose-user-message',{targetUserId:'all'});
                     break;
@@ -3401,60 +3402,17 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     openModal('compose-user-message',{targetUserId:target});
                     break;
                 }
-                case 'send-user-welcome': {
-                    const m=state.modal||{}; const u=m.user||{};
-                    const custom=m.mode==='custom';
-                    const title=(document.getElementById('welcome-message-title')?.value||'').trim();
-                    const body=(document.getElementById('welcome-message-body')?.value||'').trim();
-                    const mediaFile=document.getElementById('welcome-message-media')?.files?.[0]||null;
-                    const readyTitle=`أهلا بيك يا ${userDisplayName(u)} 👋`;
-                    const readyBody='نورتنا ✨ نتمنى تلاقي كل اللي محتاجه هنا وتكون تجربتك داخل المنصة أسهل وأفضل.';
-                    const finalTitle=custom?title:readyTitle;
-                    let finalBody=custom?body:readyBody;
-                    if(!finalTitle || (!finalBody && !mediaFile)) return showToast('أكمل عنوان الرسالة ونصها أو اختر مرفقًا.','error');
-                    if(mediaFile && mediaFile.size>25*1024*1024) return showToast('حجم المرفق يجب ألا يتجاوز 25 ميجابايت.','error');
-                    const btn=el; btn.disabled=true; btn.textContent='جاري الإرسال…';
-                    try{
-                        let marker='';
-                        if(mediaFile){
-                            if(!(mediaFile.type.startsWith('image/')||mediaFile.type.startsWith('video/'))) throw new Error('الصورة أو الفيديو غير مدعوم.');
-                            const ext=(mediaFile.name.split('.').pop()||'bin').toLowerCase();
-                            const type=mediaFile.type.startsWith('video/')?'video':'image';
-                            const path=`messages/${crypto.randomUUID()}.${ext}`;
-                            const up=await sb.storage.from('admin-messages').upload(path,mediaFile,{upsert:false,contentType:mediaFile.type||undefined});
-                            if(up.error) throw up.error;
-                            marker=`[[MIDAD_MEDIA|${type}|${encodeURIComponent(path)}]]`;
-                        }
-                        if(marker) finalBody=(finalBody?finalBody+'\n\n':'')+marker;
-                        const {error}=await sb.from('user_messages').insert({target_user_id:u.id,title:finalTitle,body:finalBody,max_views:1,is_active:true});
-                        if(error) throw error;
-                        closeModal(); await openUsersManagement(); showToast('تم إرسال ترحيب أول مرة للحساب المحدد.','success');
-                    }catch(err){showToast(`تعذر إرسال الترحيب: ${err.message||'خطأ غير معروف'}`,'error');btn.disabled=false;btn.textContent='إرسال الترحيب مرة واحدة';}
-                    break;
-                }
                 case 'send-user-message': {
                     const title=(document.getElementById('admin-message-title')?.value||'').trim();
-                    let body=(document.getElementById('admin-message-body')?.value||'').trim();
+                    const body=(document.getElementById('admin-message-body')?.value||'').trim();
                     const targetUserId=document.getElementById('message-target-user')?.value || (state.modal?.targetUserId!=='all'?state.modal?.targetUserId:null);
-                    const mediaFile=document.getElementById('admin-message-media')?.files?.[0]||null;
                     if(!title) return showToast('اكتب عنوان الرسالة.','error');
-                    if(!body && !mediaFile) return showToast('اكتب نص الرسالة أو اختر مرفقًا.','error');
-                    if(mediaFile && mediaFile.size>25*1024*1024) return showToast('حجم المرفق يجب ألا يتجاوز 25 ميجابايت.','error');
+                    if(!body) return showToast('اكتب نص الرسالة.','error');
                     const btn=el;btn.disabled=true;btn.textContent='جاري الإرسال…';
                     try{
-                        let mediaMarker='';
-                        if(mediaFile){
-                          const ext=(mediaFile.name.split('.').pop()||'bin').toLowerCase();
-                          const type=mediaFile.type.startsWith('video/')?'video':'image';
-                          const path=`messages/${crypto.randomUUID()}.${ext}`;
-                          const up=await sb.storage.from('admin-messages').upload(path,mediaFile,{upsert:false,contentType:mediaFile.type||undefined});
-                          if(up.error) throw up.error;
-                          mediaMarker=`[[MIDAD_MEDIA|${type}|${encodeURIComponent(path)}]]`;
-                        }
-                        if(mediaMarker) body=(body?body+'\n\n':'')+mediaMarker;
                         const viewsRaw=document.getElementById('admin-message-views')?.value || '1';
-                        const max_views=viewsRaw==='unlimited' ? null : Math.max(1,parseInt(viewsRaw,10)||1);
-                        const {error}=await sb.from('user_messages').insert({target_user_id:targetUserId||null,title,body,max_views,is_active:true});
+                    const max_views=viewsRaw==='unlimited' ? null : Math.max(1,parseInt(viewsRaw,10)||1);
+                    const {error}=await sb.from('user_messages').insert({target_user_id:targetUserId||null,title,body,max_views,is_active:true});
                         if(error) throw error;
                         closeModal(); await openUsersManagement(); showToast(targetUserId?'تم إرسال الرسالة للحساب المحدد.':'تم إرسال الرسالة لجميع الحسابات.','success');
                     }catch(err){showToast(`تعذر إرسال الرسالة: ${err.message||'خطأ غير معروف'}`,'error');btn.disabled=false;btn.textContent='إرسال الرسالة';}
@@ -3500,7 +3458,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     const file=input?.files?.[0];
                     const btn=el; btn.disabled=true; btn.textContent='جاري الحفظ…';
                     try{
-                        let video_path=document.getElementById('welcome-video-library-select')?.value || state.welcomeVideoCampaign?.video_path||'';
+                        let video_path=state.welcomeVideoCampaign?.video_path||'';
                         if(file){
                             if(!file.type.startsWith('video/')) throw new Error('اختار ملف فيديو صحيح.');
                             video_path=await uploadFile('welcome-videos',file,`campaign/${Date.now()}`);
@@ -3785,7 +3743,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                         const user=await getCurrentAuthUser();
                         if(!user) throw new Error('انتهت جلسة الدخول.');
                         if(state.managerPageAvatarFile){
-                            avatarPath=await uploadFile('avatars',state.managerPageAvatarFile,`platform/${user.id}/${Date.now()}-${Math.random().toString(36).slice(2,8)}`);
+                            avatarPath=await uploadFile('avatars',state.managerPageAvatarFile,`${user.id}/platform/${Date.now()}-${Math.random().toString(36).slice(2,8)}`);
                         }
                         const payload={
                             id:1,
@@ -3824,11 +3782,11 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                         const name=(document.getElementById('manager-public-name')?.value||'مدير المنصة').trim() || 'مدير المنصة';
                         const message=(document.getElementById('manager-public-message')?.value||'').trim();
                         let avatarPath=current.avatar_path||current.avatar_path||null;
-                        if(state.modal?.managerAvatarFile){ avatarPath=await uploadFile('avatars',state.modal.managerAvatarFile,`platform/${(await getCurrentAuthUser()).id}`); }
-                        const payload={id:1,public_name:name,public_titles:Array.isArray(current.titles)?current.titles:[],public_message:message,avatar_path:avatarPath,updated_at:new Date().toISOString(),updated_by:(await getCurrentAuthUser()).id};
+                        if(state.modal?.managerAvatarFile){ avatarPath=await uploadFile('avatars',state.modal.managerAvatarFile,`${(await getCurrentAuthUser()).id}/platform`); }
+                        const payload={id:1,public_name:name,public_titles:Array.isArray(current.titles)?current.titles:[],public_message:message,public_name_bold:(current.name_bold!==false),public_name_color:current.name_color||'#111827',avatar_path:avatarPath,updated_at:new Date().toISOString(),updated_by:(await getCurrentAuthUser()).id};
                         const {data,error}=await sb.from('platform_profile').upsert(payload,{onConflict:'id'}).select('*').single();
                         if(error) throw error;
-                        state.platformManager={id:data.id,name:data.public_name||name,titles:Array.isArray(data.public_titles)?data.public_titles:[],message:data.public_message||'',avatar:publicStorageUrl('avatars',data.avatar_path||'') ,avatar_path:data.avatar_path||null};
+                        state.platformManager={id:data.id,name:data.public_name||name,titles:Array.isArray(data.public_titles)?data.public_titles:[],message:data.public_message||'',name_bold:data.public_name_bold!==false,name_color:data.public_name_color||'#111827',avatar:publicStorageUrl('avatars',data.avatar_path||'') ,avatar_path:data.avatar_path||null};
                         closeModal(); render(); showToast('تم حفظ بيانات مدير المنصة وظهورها للجميع.','success');
                     }catch(err){ showToast(err.message||'تعذر حفظ بيانات مدير المنصة.','error'); }
                     finally{btn.disabled=false;btn.textContent='حفظ للجميع';}
@@ -4105,7 +4063,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 const imageBucket=(m.kind==='item'||m.kind==='add-item')?'materials':(m.kind==='sub'||m.kind==='add-sub'?'subcategories':'categories');
                 const imagePath=m.imageFile?await uploadFile(imageBucket,m.imageFile,'images'):(m.image&&!String(m.image).startsWith('blob:')?m.image:null);
                 const filePath=m.fileFile?await uploadFile('materials',m.fileFile,'files'):(m.fileData&&!String(m.fileData).startsWith('data:')?m.fileData:null);
-                m.visibilityMode=document.getElementById('content-visibility')?.value||m.visibilityMode||'all'; m.textBold = m.textBold !== false; m.textColor = m.textColor || '#111827'; m.allowedUsers=[...(document.getElementById('content-allow-users')?.selectedOptions||[])].map(o=>o.value); m.excludedUsers=[...(document.getElementById('content-deny-users')?.selectedOptions||[])].map(o=>o.value);
+                m.visibilityMode=document.getElementById('content-visibility')?.value||m.visibilityMode||'all'; m.textBold = m.textBold === false ? false : true; m.textColor = m.textColor || '#111827'; m.allowedUsers=[...(document.getElementById('content-allow-users')?.selectedOptions||[])].map(o=>o.value); m.excludedUsers=[...(document.getElementById('content-deny-users')?.selectedOptions||[])].map(o=>o.value);
                 const authUserForSave = await getCurrentAuthUser();
                 const ownerId=m.ownerId||authUserForSave.id||state.user?.id||null;
                 if(m.kind==='add-section'){
@@ -4146,31 +4104,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             app.innerHTML=`<div class="login-wrap"><div class="login-brand"></div><div class="login-sub"><strong>${title}</strong><br><span>${text}</span><br><button class="login-btn" style="margin-top:18px" onclick="location.replace('index.html')">${buttonText}</button></div></div>`;
         }
 
-        async function listWelcomeVideoObjects(path=''){
-            const out=[];
-            try{
-                const {data,error}=await sb.storage.from('welcome-videos').list(path,{limit:100,offset:0,sortBy:{column:'name',order:'asc'}});
-                if(error) throw error;
-                for(const item of (data||[])){
-                    if(!item?.name) continue;
-                    const childPath=path ? `${path}/${item.name}` : item.name;
-                    const isFolder=!item.id && !item.metadata;
-                    if(isFolder){
-                        const nested=await listWelcomeVideoObjects(childPath);
-                        out.push(...nested);
-                    }else{
-                        const ext=(item.name.split('.').pop()||'').toLowerCase();
-                        if(['mp4','webm','mov','m4v'].includes(ext)) out.push({path:childPath,name:item.name,size:item.metadata?.size||0,updated:item.updated_at||item.created_at||''});
-                    }
-                }
-            }catch(err){ console.warn('welcome video library',err); }
-            return out;
-        }
-        async function loadWelcomeVideoLibrary(){
-            state.welcomeVideoLibrary=await listWelcomeVideoObjects('');
-            return state.welcomeVideoLibrary;
-        }
-
         async function loadWelcomeVideoCampaign(){
             try{
                 const {data,error}=await sb.from('welcome_video_campaign').select('*').eq('id',1).maybeSingle();
@@ -4202,7 +4135,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             try{
                 const {data,error}=await sb.from('platform_profile').select('*').eq('id',1).maybeSingle();
                 if(error) throw error;
-                if(data){ state.platformManager={id:data.id,name:data.public_name||'مدير المنصة',titles:Array.isArray(data.public_titles)?data.public_titles:[],message:data.public_message||'',avatar:publicStorageUrl('avatars',data.avatar_path||''),avatar_path:data.avatar_path||null}; }
+                if(data){ state.platformManager={id:data.id,name:data.public_name||'مدير المنصة',titles:Array.isArray(data.public_titles)?data.public_titles:[],message:data.public_message||'',avatar:publicStorageUrl('avatars',data.avatar_path||''),avatar_path:data.avatar_path||null,name_bold:data.public_name_bold!==false,name_color:data.public_name_color||'#111827'}; }
             }catch(_){ /* لا تمنع فتح المنصة إذا لم يكن سجل المدير موجودًا بعد */ }
         }
 
@@ -4250,22 +4183,28 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
         console.log('👤 العضو:', state.user.name);
         console.log('📂 الأقسام:', state.sections.length);
     </script>
-<script src="theme-system.js"></script>
-    </body>
+
+<style id="owner-size-final-fix">
+.manager-trigger{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;border-radius:50%!important;overflow:hidden!important;}
+.manager-trigger img,.manager-trigger .manager-avatar{width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%!important;}
+.manager-trigger .manager-title{font-size:9px!important;line-height:1.05!important;white-space:nowrap!important;}
+</style>
+<script src="../theme-system.js"></script>
+</body>
 </html>
 
 <style>
 .manager-trigger-wrap{background:transparent;border:0;box-shadow:none;padding:0}
-.manager-trigger{width:72px!important;height:72px!important;border-radius:50%!important;border:3px solid #f4c95d!important;background:transparent!important;box-shadow:0 7px 20px rgba(245,158,11,.20)!important;padding:0!important}
+.manager-trigger{width:30px!important;height:30px!important;border-radius:50%!important;border:3px solid #f4c95d!important;background:transparent!important;box-shadow:0 7px 20px rgba(245,158,11,.20)!important;padding:0!important}
 .manager-trigger img{border-radius:50%!important;display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
 .manager-crown{display:none!important}
 .manager-trigger-wrap .manager-label{font-size:.67rem!important;font-weight:900!important;background:#fff4cf;padding:4px 7px;border-radius:999px;border:1px solid #ecd37b;color:#8b6200!important}
 .welcome-video-overlay:-webkit-full-screen{width:100vw;height:100vh}
-@media(max-width:700px){.manager-trigger{width:64px!important;height:64px!important}.manager-trigger-wrap .manager-label{font-size:.6rem!important}}
+@media(max-width:700px){.manager-trigger{width:30px!important;height:30px!important}.manager-trigger-wrap .manager-label{font-size:.6rem!important}}
 
         /* FINAL FIX — manager trigger + user management layout */
-        .manager-trigger-wrap{width:58px;min-width:58px;display:flex;flex-direction:column;align-items:center;gap:3px;flex:none}
-        .manager-trigger{width:52px!important;height:52px!important;min-width:52px;min-height:52px;border-radius:50%!important;overflow:hidden!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;border:2px solid #f4c95d!important;background:#fff!important;box-shadow:0 5px 14px rgba(15,23,42,.12)!important}
+        .manager-trigger-wrap{width:48px;min-width:48px;display:flex;flex-direction:column;align-items:center;gap:3px;flex:none}
+        .manager-trigger{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;border-radius:50%!important;overflow:hidden!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;border:2px solid #f4c95d!important;background:#fff!important;box-shadow:0 5px 14px rgba(15,23,42,.12)!important}
         .manager-trigger img{width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;border-radius:50%!important}
         .manager-trigger .manager-crown{width:17px!important;height:17px!important;right:-1px!important;bottom:-1px!important}
         .manager-trigger-wrap .manager-label{font-size:.58rem!important;font-weight:900!important;line-height:1!important;color:#946200!important;white-space:nowrap!important;background:#fff7d8;border:1px solid #ecd37b;border-radius:999px;padding:3px 6px}
@@ -4314,6 +4253,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
         .message-compose-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.message-compose-head h3{margin:0 0 5px;font-size:1rem}.message-compose-head p{margin:0;color:var(--text-muted);font-size:.75rem}.message-compose-btn{background:var(--primary);color:#fff;border-color:var(--primary);padding:10px 13px}.message-list{display:flex;flex-direction:column;gap:9px;margin-top:14px}.message-list-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid var(--border);border-radius:14px;background:var(--surface-alt)}.message-list-item-main{min-width:0;display:flex;flex-direction:column;gap:3px}.message-list-item-main small{color:var(--text-muted);font-size:.7rem;overflow-wrap:anywhere}.message-list-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}.message-audience{padding:5px 8px;border-radius:999px;background:#eef7ff;color:#0b78b5;font-size:.68rem;font-weight:900}.message-action-btn{padding:7px 9px;background:var(--surface);font-size:.68rem;color:var(--text-secondary)}.message-action-btn.danger{background:#fff1f2;color:#be123c;border-color:#fecdd3}
         .welcome-video-admin-card{overflow:hidden}.welcome-video-admin-grid{align-items:start}
         @media(max-width:900px){.um-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.um-user-main{align-items:flex-start}}
-        @media(max-width:620px){.um-page{padding:20px 12px 40px}.um-head{flex-direction:column;align-items:stretch}.um-create{width:100%}.um-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.um-toolbar{flex-direction:column;align-items:stretch}.um-user-main{align-items:flex-start}.um-status{margin-right:auto}.um-detail-grid{grid-template-columns:1fr}.message-compose-head{flex-direction:column;align-items:stretch}.message-list-item{flex-direction:column;align-items:stretch}.message-list-actions{justify-content:flex-start}.manager-trigger{width:52px!important;height:52px!important}.manager-trigger-wrap{width:56px;min-width:56px}.manager-trigger-wrap .manager-label{font-size:.53rem!important}}
+        @media(max-width:620px){.um-page{padding:20px 12px 40px}.um-head{flex-direction:column;align-items:stretch}.um-create{width:100%}.um-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.um-toolbar{flex-direction:column;align-items:stretch}.um-user-main{align-items:flex-start}.um-status{margin-right:auto}.um-detail-grid{grid-template-columns:1fr}.message-compose-head{flex-direction:column;align-items:stretch}.message-list-item{flex-direction:column;align-items:stretch}.message-list-actions{justify-content:flex-start}.manager-trigger{width:30px!important;height:30px!important;border-radius:50%!important}.manager-trigger-wrap{width:48px;min-width:48px}.manager-trigger-wrap .manager-label{font-size:.53rem!important}}
 
 </style>
