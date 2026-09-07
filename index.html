@@ -343,7 +343,13 @@
             .pending-notice-card button{margin-top:24px;width:100%;border:0;border-radius:12px;padding:13px;background:linear-gradient(135deg,var(--glow-color),var(--glow-color-dark));color:#fff;font:800 14px system-ui,sans-serif;cursor:pointer}
             @keyframes pendingFade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
 </style>
-    </head>
+    
+<style id="midad-first-welcome-profile-help">
+.first-welcome-profile-help{display:flex;flex-direction:column;gap:6px;margin:10px 0 2px;padding:12px 14px;border-radius:15px;background:linear-gradient(135deg,var(--surface-alt,#f8fafc),var(--primary-bg,#eff8ff));border:1px solid var(--border,#e2e8f0);color:var(--text,#0f172a);text-align:right;line-height:1.85;font-size:.86rem}
+.first-welcome-profile-help strong{font-size:.9rem;color:var(--primary,#2563eb);font-weight:900}.first-welcome-profile-help span{font-weight:700;color:var(--text-secondary,#64748b)}
+</style>
+
+</head>
     <body>
         <form class="radio-controls">
             <input type="radio" id="on" name="status" value="on" />
@@ -1026,7 +1032,7 @@
                     // تم رفض طلب الاستكمال.
                     if(tempRequest.status === 'rejected'){
                         const reason=String(tempRequest.note||'').trim();
-                        return showPendingNotice('تم رفض الطلب', reason ? `سبب الرفض:<br><br><strong>${reason}</strong>` : 'تم رفض طلب استكمال الحساب. تواصل مع الإدارة.');
+                        return showPendingNotice('تم رفض الطلب', reason ? `سبب الرفض\n${reason}` : 'تم رفض طلب استكمال الحساب. تواصل مع الإدارة.');
                     }
 
                     // approved: لا نفتح استكمال الحساب مرة أخرى؛ نكمل الدخول الطبيعي.
@@ -1183,7 +1189,7 @@
                     sessionStorage.removeItem('mohadarat_temporary_email');
 
                     e.target.reset();
-                    showPendingNotice('تم إرسال طلبك', 'تم حفظ بيانات الحساب وإرسال طلبك للمراجعة.<br><br>البريد المستخدم لتسجيل الدخول: <strong>'+newEmail+'</strong><br>كلمة السر: كلمة السر الجديدة التي اخترتها.<br><br>انتظر مراجعة الإدارة قبل محاولة الدخول.');
+                    showPendingNotice('تم إرسال طلبك', 'تم حفظ بيانات الحساب وإرسال طلبك للمراجعة.\n\nالبريد المستخدم لتسجيل الدخول: '+newEmail+'\nكلمة السر: كلمة السر الجديدة التي اخترتها.\n\nانتظر مراجعة الإدارة قبل محاولة الدخول.');
                 }catch(err){
                     const raw=String(err?.message||'');
                     if(raw.toLowerCase().includes('email already in use') || raw.toLowerCase().includes('email_exists'))
@@ -1235,7 +1241,7 @@
                     }
 
                     e.target.reset();
-                    showPendingNotice('تم إرسال طلبك', 'تم إنشاء الحساب وإرسال طلبك للمراجعة.<br><br>البريد الإلكتروني وكلمة السر اللذان أنشأتهما هما بيانات تسجيل الدخول الخاصة بك.<br><br>انتظر مراجعة الإدارة قبل الدخول.');
+                    showPendingNotice('تم إرسال طلبك', 'تم إنشاء الحساب وإرسال طلبك للمراجعة.\n\nالبريد الإلكتروني وكلمة السر اللذان أنشأتهما هما بيانات تسجيل الدخول الخاصة بك.\n\nانتظر مراجعة الإدارة قبل الدخول.');
                 }catch(err){
                     message(friendlyAuthError(err,'حدث خطأ أثناء إنشاء الحساب. حاول مرة أخرى.'),'error');
                 }finally{

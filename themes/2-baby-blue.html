@@ -2056,6 +2056,12 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
 }
 </style>
 
+
+<style id="midad-first-welcome-profile-help">
+.first-welcome-profile-help{display:flex;flex-direction:column;gap:6px;margin:10px 0 2px;padding:12px 14px;border-radius:15px;background:linear-gradient(135deg,var(--surface-alt,#f8fafc),var(--primary-bg,#eff8ff));border:1px solid var(--border,#e2e8f0);color:var(--text,#0f172a);text-align:right;line-height:1.85;font-size:.86rem}
+.first-welcome-profile-help strong{font-size:.9rem;color:var(--primary,#2563eb);font-weight:900}.first-welcome-profile-help span{font-weight:700;color:var(--text-secondary,#64748b)}
+</style>
+
 </head>
 <body>
 <div class="cloud" style="top:8%;left:6%;width:140px;height:46px;background:radial-gradient(ellipse,rgba(255,255,255,.9),transparent 70%);"></div>
@@ -3284,9 +3290,14 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             if (m.kind === 'first-welcome') {
                 const u=state.user||{};
                 const avatar=u.avatar?`<img src="${escapeHtml(u.avatar)}" alt="">`:`<span>${escapeHtml((u.name||'م').trim().charAt(0).toUpperCase())}</span>`;
-                return `<div class="overlay first-welcome-overlay" data-act="close-modal-overlay"><div class="modal um-modal first-welcome-card" data-stop="1"><div class="um-detail-hero" style="justify-content:center;text-align:center"><div class="um-detail-avatar" style="width:92px;height:92px;border-radius:50%;overflow:hidden">${avatar}</div></div><div style="text-align:center"><h3 style="font-size:1.4rem">أهلاً بيك 👋</h3><p class="um-modal-sub" style="margin-top:8px">نورت المنصة يا ${escapeHtml(u.name||'صاحبنا')} ✨<br>اتمنى تلاقي كل اللي محتاجه هنا وتكون المذاكرة أسهل عليك.</p></div><div class="modal-actions"><button class="btn-save" data-act="close-modal">يلا نبدأ 🚀</button></div></div></div>`;
+                return `<div class="overlay first-welcome-overlay" data-act="close-modal-overlay"><div class="modal um-modal first-welcome-card" data-stop="1">
+                  <div class="first-welcome-top"><div class="first-welcome-avatar">${avatar}</div><div class="first-welcome-title-wrap"><span class="first-welcome-kicker">أول زيارة ✨</span><h3>أهلاً بيك يا ${escapeHtml(u.name||'صاحبنا')} 👋</h3></div></div>
+                  <div class="first-welcome-highlight">أتمنى تحط صورة بروفايل عشان تستخدم الموقع بأحسن شكل ✨</div>
+                  <div class="first-welcome-profile-help"><strong>عشان تضيف صورتك:</strong><span>اضغط على صورتك الشخصية ← تعديل الملف الشخصي ← ارفع صورة البروفايل.</span></div>
+                  <p class="um-modal-sub first-welcome-sub">صورتك هتخلي حسابك أوضح وتجربتك داخل الموقع أحسن.</p>
+                  <div class="modal-actions"><button class="btn-save first-welcome-start" data-act="close-modal">يلا نبدأ 🚀</button></div>
+                </div></div>`;
             }
-
             if (m.kind === 'user-message') {
                 const rows=Array.isArray(m.messages)?m.messages:[];
                 return `<div class="user-message-overlay" data-stop="1">
@@ -3673,7 +3684,7 @@ function onManagerPageAvatarChange(e){
             if (act === 'close-modal') {
                 const wasFirst = state.modal?.kind === 'first-welcome';
                 closeModal();
-                if (wasFirst) { if (!state.user.phone) openModal('phone-required',{}); else void showWelcomeVideoOnce(); }
+                if (wasFirst) { if (!state.user.phone) openModal('phone-required',{}); else { /* video is shown before the first welcome, not after it */ } }
                 return;
             }
             if (act === 'close-confirm') {
@@ -4507,15 +4518,16 @@ function onManagerPageAvatarChange(e){
             try{const {data,error}=await sb.rpc('should_show_welcome_video_for_me');if(error)throw error;if(!data?.should_show||!data?.video_path)return null;return publicStorageUrl('welcome-videos',data.video_path);}catch(_){return null;}
         }
         async function markWelcomeVideoViewed(){try{await sb.rpc('mark_welcome_video_viewed');}catch(_){}}
-        async function showWelcomeVideoOnce(){
-            if(!state.user || state.role==='admin') return;
-            const url=await getWelcomeVideoToShow(); if(!url) return;
+        async function showWelcomeVideoOnce(onDone=null){
+            if(!state.user || state.role==='admin'){ if(onDone) onDone(); return; }
+            const url=await getWelcomeVideoToShow(); if(!url){ if(onDone) onDone(); return; }
             const overlay=document.createElement('div'); overlay.className='welcome-video-overlay show';
             overlay.innerHTML=`<div class="welcome-video-shell"><video class="welcome-video" playsinline preload="auto" autoplay></video><div class="welcome-video-sound-gate" style="display:none"><button type="button" class="welcome-video-sound-btn">🔊 تشغيل الفيديو بالصوت</button></div></div>`;
             document.body.appendChild(overlay); const video=overlay.querySelector('video'), gate=overlay.querySelector('.welcome-video-sound-gate');
             video.src=url; video.muted=false; video.volume=1; let done=false;
-            const finish=async()=>{if(done)return;done=true;await markWelcomeVideoViewed();overlay.remove();};
-            video.addEventListener('ended',finish,{once:true}); video.addEventListener('error',()=>overlay.remove(),{once:true});
+            const finish=async()=>{if(done)return;done=true;await markWelcomeVideoViewed();overlay.remove();if(typeof onDone==='function') onDone();};
+            const fail=()=>{if(done)return;done=true;overlay.remove();if(typeof onDone==='function') onDone();};
+            video.addEventListener('ended',finish,{once:true}); video.addEventListener('error',fail,{once:true});
             const start=async()=>{try{video.muted=false;await video.play();gate.style.display='none';}catch(_){gate.style.display='flex';}};
             video.addEventListener('canplay',start,{once:true}); gate.querySelector('button').addEventListener('click',async()=>{try{video.muted=false;await video.play();gate.style.display='none';}catch(_){}}); setTimeout(start,300);
         }
@@ -4546,7 +4558,7 @@ function onManagerPageAvatarChange(e){
                 const firstOpen=!profile.first_opened_at&&!profile.first_seen_at;
                 void sb.rpc('record_user_open').then(()=>{},()=>{});
                 await Promise.all([loadData(),loadPlatformManager(),loadWelcomeVideoCampaign()]);state.view='home';render();
-                if(firstOpen) openModal('first-welcome',{}); else await showWelcomeVideoOnce();
+                if(firstOpen) await new Promise(resolve=>showWelcomeVideoOnce(()=>{openModal('first-welcome',{});resolve();}));
                 try{
                     const {data:messages,error:messagesError}=await sb.rpc('get_my_unread_messages');
                     if(!messagesError && Array.isArray(messages) && messages.length){
