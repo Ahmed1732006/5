@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>المنصة</title>
+    <title>الموقع</title>
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -861,6 +861,279 @@ body {
   .first-welcome-highlight{font-size:1rem!important}
 }
 </style>
+
+<style id="midad-polish-v2">
+/* MIDAD — unified visual polish for welcome + video admin UI.
+   Functionality, IDs and event wiring intentionally unchanged. */
+.admin-welcome-modal,
+.admin-message-modal,
+.welcome-video-admin-card{
+  --ui-accent:var(--primary,#0ea5e9);
+  --ui-accent-soft:color-mix(in srgb,var(--primary-bg,#eff8ff) 82%,white);
+  --ui-accent-line:color-mix(in srgb,var(--primary,#0ea5e9) 26%,var(--border,#dbe5ef));
+}
+
+/* Main welcome modal: card-like, layered, theme-driven. */
+.admin-welcome-modal{
+  width:min(94vw,680px)!important;
+  max-width:680px!important;
+  border:1px solid var(--ui-accent-line)!important;
+  border-radius:28px!important;
+  padding:22px!important;
+  background:
+    radial-gradient(circle at 12% 8%, color-mix(in srgb,var(--primary,#0ea5e9) 12%,transparent), transparent 30%),
+    linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f7fbff))!important;
+  box-shadow:0 28px 90px rgba(15,23,42,.22),0 0 0 1px rgba(255,255,255,.55) inset!important;
+}
+.admin-welcome-modal .um-modal-icon.welcome-modal-icon{
+  width:56px!important;height:56px!important;
+  border-radius:18px!important;
+  display:grid!important;place-items:center!important;
+  background:linear-gradient(135deg,var(--primary-bg,#eff8ff),var(--gold-bg,#fffaf0))!important;
+  color:var(--ui-accent)!important;
+  border:1px solid var(--ui-accent-line)!important;
+  box-shadow:0 10px 24px color-mix(in srgb,var(--primary,#0ea5e9) 12%,transparent)!important;
+}
+.admin-welcome-modal h3{
+  font-size:1.28rem!important;
+  line-height:1.5!important;
+  margin-bottom:6px!important;
+}
+.admin-welcome-modal .um-modal-sub{
+  margin-bottom:14px!important;
+  line-height:1.85!important;
+}
+
+/* Target user: not a dead grey rectangle anymore. */
+.welcome-target-chip{
+  display:grid!important;
+  grid-template-columns:auto 1fr auto!important;
+  align-items:center!important;
+  gap:11px!important;
+  padding:12px 14px!important;
+  margin:14px 0!important;
+  border-radius:18px!important;
+  border:1px solid var(--ui-accent-line)!important;
+  background:linear-gradient(135deg,var(--surface,#fff),var(--ui-accent-soft))!important;
+  box-shadow:0 8px 22px rgba(15,23,42,.06)!important;
+}
+.welcome-target-chip > i{
+  width:38px;height:38px;border-radius:13px;display:grid;place-items:center;
+  color:var(--ui-accent);background:var(--primary-bg,#eff8ff);border:1px solid var(--ui-accent-line);
+}
+.welcome-target-chip strong{font-size:.95rem;color:var(--text,#0f172a);min-width:0}
+.welcome-target-chip span{justify-self:end;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-muted,#94a3b8)!important}
+
+/* Mode switch: feels like a control bar, not browser buttons. */
+.welcome-mode-grid{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:9px!important;
+  padding:5px!important;
+  border-radius:17px!important;
+  background:color-mix(in srgb,var(--primary-bg,#f8fafc) 60%,var(--surface,#fff))!important;
+  border:1px solid var(--border,#dbe5ef)!important;
+}
+.welcome-mode-grid .message-target{
+  min-height:46px!important;
+  border-radius:13px!important;
+  border:1px solid transparent!important;
+  background:transparent!important;
+  color:var(--text-secondary,#475569)!important;
+  font-family:var(--font-ar,sans-serif)!important;
+  font-weight:800!important;
+  transition:transform .2s ease,background .2s ease,box-shadow .2s ease,color .2s ease!important;
+}
+.welcome-mode-grid .message-target.active{
+  background:var(--surface,#fff)!important;
+  color:var(--ui-accent)!important;
+  border-color:var(--ui-accent-line)!important;
+  box-shadow:0 7px 18px rgba(15,23,42,.08)!important;
+}
+.welcome-mode-grid .message-target:hover{transform:translateY(-1px)!important}
+
+/* Ready message preview: visual letter/card, not a bare panel. */
+.welcome-ready-preview{
+  position:relative!important;
+  overflow:hidden!important;
+  padding:20px 20px 20px 52px!important;
+  border-radius:20px!important;
+  background:
+    linear-gradient(135deg,var(--surface,#fff),var(--primary-bg,#f8fbff))!important;
+  border:1px solid var(--ui-accent-line)!important;
+  box-shadow:0 10px 24px rgba(15,23,42,.055)!important;
+}
+.welcome-ready-preview::before{
+  content:"";position:absolute;inset-inline-start:16px;top:18px;width:8px;height:8px;
+  border-radius:50%;background:var(--ui-accent);box-shadow:0 0 0 7px color-mix(in srgb,var(--primary,#0ea5e9) 12%,transparent);
+}
+.welcome-ready-preview h4{font-size:1.16rem!important;line-height:1.7!important}
+.welcome-ready-preview p{font-size:.96rem!important;line-height:2!important}
+
+/* Custom message fields: a designed writing area. */
+.admin-welcome-modal .field{margin-bottom:14px!important}
+.admin-welcome-modal .field label{
+  display:flex!important;align-items:center!important;gap:7px!important;
+  font-size:.78rem!important;font-weight:900!important;color:var(--text-secondary,#64748b)!important;
+  margin-bottom:7px!important;
+}
+.admin-welcome-modal .field input[type="text"],
+.admin-welcome-modal .field textarea{
+  width:100%!important;
+  border:1px solid var(--ui-accent-line)!important;
+  border-radius:18px!important;
+  background:linear-gradient(180deg,var(--surface,#fff),var(--primary-bg,#fbfdff))!important;
+  color:var(--text,#0f172a)!important;
+  font-family:var(--font-ar,sans-serif)!important;
+  box-shadow:0 5px 18px rgba(15,23,42,.045)!important;
+  outline:none!important;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease!important;
+}
+.admin-welcome-modal .field input[type="text"]{
+  min-height:48px!important;padding:11px 14px!important;font-weight:800!important;
+}
+.admin-welcome-modal .field textarea{
+  min-height:150px!important;resize:vertical!important;padding:15px 16px!important;line-height:1.95!important;font-size:.93rem!important;
+}
+.admin-welcome-modal .field input[type="text"]:focus,
+.admin-welcome-modal .field textarea:focus{
+  border-color:var(--ui-accent)!important;
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--primary,#0ea5e9) 12%,transparent),0 8px 24px rgba(15,23,42,.06)!important;
+}
+
+/* File field as a polished upload tile while preserving the native input. */
+.admin-welcome-modal .field input[type="file"]{
+  width:100%!important;
+  padding:11px!important;
+  border:1px dashed var(--ui-accent-line)!important;
+  border-radius:16px!important;
+  background:var(--primary-bg,#f8fbff)!important;
+  color:var(--text-secondary,#64748b)!important;
+  font-family:var(--font-ar,sans-serif)!important;
+}
+.admin-welcome-modal .field .field-hint{display:block;margin-top:7px;color:var(--text-muted,#94a3b8);line-height:1.7;font-size:.72rem}
+
+/* Buttons: inherit the active theme, keeping the user's favourite coloured action. */
+.admin-welcome-modal .modal-actions{margin-top:16px!important;gap:10px!important}
+.admin-welcome-modal .modal-actions .btn-save,
+.admin-welcome-modal .modal-actions .btn-cancel{
+  min-height:48px!important;border-radius:16px!important;font-weight:900!important;
+  font-family:var(--font-ar,sans-serif)!important;
+}
+
+/* Video manager: split into a studio-style panel. */
+.welcome-video-admin-card{
+  padding:20px!important;
+  border-radius:24px!important;
+  background:
+    radial-gradient(circle at 92% 10%,color-mix(in srgb,var(--primary,#0ea5e9) 9%,transparent),transparent 28%),
+    linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f8fbff))!important;
+  border:1px solid var(--ui-accent-line)!important;
+  box-shadow:0 12px 30px rgba(15,23,42,.06)!important;
+}
+.welcome-video-admin-card h3{font-size:1.08rem!important;line-height:1.6!important}
+.welcome-video-admin-card > div:first-child{gap:16px!important}
+.welcome-video-status span{
+  border:1px solid var(--ui-accent-line)!important;
+  background:var(--primary-bg,#eff8ff)!important;
+  color:var(--ui-accent)!important;
+  padding:7px 11px!important;
+}
+.welcome-video-admin-grid{gap:12px!important}
+.welcome-video-admin-card .field{margin-bottom:0!important}
+.welcome-video-admin-card .field label{font-weight:900!important;color:var(--text-secondary,#64748b)!important;margin-bottom:7px!important}
+.welcome-video-admin-card select,
+.welcome-video-admin-card input[type="file"]{
+  width:100%!important;min-height:48px!important;
+  border:1px solid var(--ui-accent-line)!important;
+  border-radius:16px!important;
+  background:var(--surface,#fff)!important;
+  color:var(--text,#0f172a)!important;
+  font-family:var(--font-ar,sans-serif)!important;
+  box-shadow:0 5px 18px rgba(15,23,42,.04)!important;
+}
+.welcome-video-admin-card select{padding:10px 13px!important}
+.welcome-video-admin-card input[type="file"]{padding:10px!important}
+.welcome-video-recipients{
+  padding:12px!important;
+  border-radius:18px!important;
+  background:color-mix(in srgb,var(--primary-bg,#f8fbff) 72%,var(--surface,#fff))!important;
+  border:1px solid var(--ui-accent-line)!important;
+}
+.welcome-video-recipients .access-multi{
+  min-height:180px!important;padding:10px!important;
+  border-radius:16px!important;border:1px solid var(--ui-accent-line)!important;
+  background:var(--surface,#fff)!important;color:var(--text,#0f172a)!important;
+}
+.welcome-video-library-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(250px,.88fr)!important;
+  gap:14px!important;
+  margin-top:14px!important;
+}
+.welcome-video-library-grid > .field{
+  padding:15px!important;border-radius:20px!important;
+  background:var(--surface,#fff)!important;border:1px solid var(--ui-accent-line)!important;
+  box-shadow:0 8px 22px rgba(15,23,42,.045)!important;
+}
+.welcome-video-library-preview{
+  min-height:210px!important;
+  border-radius:20px!important;
+  border:1px solid var(--ui-accent-line)!important;
+  background:
+    radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--primary,#0ea5e9) 10%,#06101c),transparent 55%),
+    #06101c!important;
+  box-shadow:0 12px 28px rgba(2,8,23,.16)!important;
+}
+.welcome-video-library-preview video{
+  min-height:210px!important;max-height:280px!important;
+  border-radius:18px!important;
+}
+.welcome-video-empty-preview{color:#a7b4c7!important}
+.welcome-video-empty-preview i{color:var(--ui-accent)!important}
+.welcome-video-admin-controls{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:10px!important;margin-top:14px!important;
+}
+.welcome-video-admin-controls .btn-save,
+.welcome-video-admin-controls .btn-cancel{
+  min-height:48px!important;border-radius:16px!important;font-weight:900!important;
+  font-family:var(--font-ar,sans-serif)!important;
+}
+
+/* First-open user welcome: same visual language, adapted to its simpler content. */
+.first-welcome-overlay .first-welcome-card,
+.first-welcome-card{
+  position:relative!important;
+  width:min(92vw,620px)!important;
+  max-width:620px!important;
+  border-radius:28px!important;
+  border:1px solid var(--ui-accent-line)!important;
+  background:
+    radial-gradient(circle at 90% 8%,color-mix(in srgb,var(--primary,#0ea5e9) 10%,transparent),transparent 28%),
+    linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f8fbff))!important;
+  box-shadow:0 28px 90px rgba(15,23,42,.20)!important;
+}
+.first-welcome-card .um-detail-avatar{
+  box-shadow:0 14px 34px rgba(15,23,42,.14),0 0 0 5px color-mix(in srgb,var(--primary,#0ea5e9) 10%,transparent)!important;
+  border:3px solid var(--surface,#fff)!important;
+}
+.first-welcome-card .modal-actions .btn-save{min-height:50px!important;border-radius:16px!important;font-weight:900!important}
+
+@media(max-width:700px){
+  .admin-welcome-modal{padding:16px!important;border-radius:23px!important}
+  .welcome-target-chip{grid-template-columns:auto 1fr!important}
+  .welcome-target-chip span{grid-column:2;justify-self:start;max-width:100%}
+  .welcome-mode-grid{grid-template-columns:1fr!important}
+  .welcome-ready-preview{padding:17px 17px 17px 45px!important}
+  .welcome-video-library-grid{grid-template-columns:1fr!important}
+  .welcome-video-admin-controls{grid-template-columns:1fr!important}
+  .welcome-video-library-preview,.welcome-video-library-preview video{min-height:190px!important}
+  .first-welcome-card{width:min(94vw,620px)!important}
+}
+</style>
+
 </head>
 <body>
 
@@ -1282,7 +1555,7 @@ body {
             return `
             <header class="header">
               <div class="header-brand" data-act="go-home">
-                <span class="mark"><img class="site-logo-image" src="1.png" alt="" onerror="this.style.display='none'"><span></span></span>
+                <span class="mark"><img class="site-logo-image" src="../../1.png" alt="" onerror="this.style.display='none'"><span></span></span>
               </div>
               <div class="header-actions">
                 ${isAdmin() ? `<button type="button" class="admin-panel-trigger" data-act="open-admin-panel" title="إدارة المستخدمين" aria-label="إدارة المستخدمين"><i class="fas fa-users-cog"></i></button>` : ''}
@@ -2068,7 +2341,7 @@ body {
                 return `<div class="overlay first-welcome-overlay" data-act="close-modal-overlay"><div class="modal um-modal first-welcome-card" data-stop="1">
                   <div class="first-welcome-top"><div class="first-welcome-avatar">${avatar}</div><div class="first-welcome-title-wrap"><span class="first-welcome-kicker">أول زيارة ✨</span><h3>أهلا بيك يا ${escapeHtml(u.name||'صاحبنا')} 👋</h3></div></div>
                   <div class="first-welcome-highlight">أتمنى تحط صورة بروفايل عشان تستخدم الموقع بأحسن شكل ✨</div>
-                  <p class="um-modal-sub first-welcome-sub">عشان تكمل تجربتك بأفضل شكل، اضغط على صورتك الشخصية في أعلى الصفحة، واختار <strong>تعديل الملف الشخصي</strong>، وبعدها ارفع صورة بروفايلك.</p>
+                  <p class="um-modal-sub first-welcome-sub">صورتك هتخلي حسابك أوضح، وتجربتك داخل المنصة أحسن.</p>
                   <div class="modal-actions"><button class="btn-save first-welcome-start" data-act="close-modal">يلا نبدأ 🚀</button></div>
                 </div></div>`;
             }
@@ -3307,23 +3580,16 @@ body {
         }
         async function markWelcomeVideoViewed(){try{await sb.rpc('mark_welcome_video_viewed');}catch(_){}}
         async function showWelcomeVideoOnce(){
-            if(!state.user || state.role==='admin') return false;
-            const url=await getWelcomeVideoToShow();
-            if(!url) return false;
-            return await new Promise(resolve=>{
-                const overlay=document.createElement('div'); overlay.className='welcome-video-overlay show';
-                overlay.innerHTML=`<div class="welcome-video-shell"><video class="welcome-video" playsinline preload="auto" autoplay></video><div class="welcome-video-sound-gate" style="display:none"><button type="button" class="welcome-video-sound-btn">🔊 تشغيل الفيديو بالصوت</button></div></div>`;
-                document.body.appendChild(overlay);
-                const video=overlay.querySelector('video'), gate=overlay.querySelector('.welcome-video-sound-gate');
-                video.src=url; video.muted=false; video.volume=1; let done=false;
-                const finish=async(success=true)=>{if(done)return;done=true;if(success) await markWelcomeVideoViewed();overlay.remove();resolve(success);};
-                video.addEventListener('ended',()=>finish(true),{once:true});
-                video.addEventListener('error',()=>finish(false),{once:true});
-                const start=async()=>{try{video.muted=false;await video.play();gate.style.display='none';}catch(_){gate.style.display='flex';}};
-                video.addEventListener('canplay',start,{once:true});
-                gate.querySelector('button').addEventListener('click',async()=>{try{video.muted=false;await video.play();gate.style.display='none';}catch(_){} });
-                setTimeout(start,300);
-            });
+            if(!state.user || state.role==='admin') return;
+            const url=await getWelcomeVideoToShow(); if(!url) return;
+            const overlay=document.createElement('div'); overlay.className='welcome-video-overlay show';
+            overlay.innerHTML=`<div class="welcome-video-shell"><video class="welcome-video" playsinline preload="auto" autoplay></video><div class="welcome-video-sound-gate" style="display:none"><button type="button" class="welcome-video-sound-btn">🔊 تشغيل الفيديو بالصوت</button></div></div>`;
+            document.body.appendChild(overlay); const video=overlay.querySelector('video'), gate=overlay.querySelector('.welcome-video-sound-gate');
+            video.src=url; video.muted=false; video.volume=1; let done=false;
+            const finish=async()=>{if(done)return;done=true;await markWelcomeVideoViewed();overlay.remove();};
+            video.addEventListener('ended',finish,{once:true}); video.addEventListener('error',()=>overlay.remove(),{once:true});
+            const start=async()=>{try{video.muted=false;await video.play();gate.style.display='none';}catch(_){gate.style.display='flex';}};
+            video.addEventListener('canplay',start,{once:true}); gate.querySelector('button').addEventListener('click',async()=>{try{video.muted=false;await video.play();gate.style.display='none';}catch(_){}}); setTimeout(start,300);
         }
 
         async function loadPlatformManager(){
@@ -3352,7 +3618,7 @@ body {
                 const firstOpen=!profile.first_opened_at&&!profile.first_seen_at;
                 void sb.rpc('record_user_open').then(()=>{},()=>{});
                 await Promise.all([loadData(),loadPlatformManager(),loadWelcomeVideoCampaign()]);state.view='home';render();
-                if(firstOpen){ await showWelcomeVideoOnce(); openModal('first-welcome',{}); } else { await showWelcomeVideoOnce(); }
+                if(firstOpen) openModal('first-welcome',{}); else await showWelcomeVideoOnce();
                 try{
                     const {data:messages,error:messagesError}=await sb.rpc('get_my_unread_messages');
                     if(!messagesError && Array.isArray(messages) && messages.length){
