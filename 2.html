@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>المنصة</title>
+    <title>الموقع</title>
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -4209,7 +4209,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
         async function bootApp(){
             try{
                 const {data:{session}}=await sb.auth.getSession();
-                if(!session?.user){renderAccessMessage('لا توجد جلسة دخول','افتح index.html وسجل الدخول أولًا.');return;}
+                if(!session?.user){renderAccessMessage('لا توجد جلسة دخول','افتح الموقع من البداية وسجل الدخول أولًا.');return;}
                 currentAuthUser = session.user;
                 const {data:profile,error}=await sb.from('profiles').select('*').eq('id',session.user.id).maybeSingle();
                 if(error)throw error;
@@ -4217,8 +4217,8 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 const admin=profile.role==='admin';
                 if(!admin&&profile.status==='revoked'){renderAccessMessage('الحساب موقوف','تواصل مع الإدارة لإعادة التفعيل.');return;}
                 if(!admin&&profile.status==='pending'){renderAccessMessage('الحساب في انتظار الموافقة','بعد الموافقة ستتمكن من الدخول.');return;}
-                if(!admin&&(profile.must_change_credentials||profile.account_type==='temporary'||profile.is_temporary===true)){renderAccessMessage('الحساب مؤقت','أكمل بيانات الحساب من index.html أولًا.');return;}
-                if(!admin&&profile.must_change_password){renderAccessMessage('تغيير كلمة السر مطلوب','سجّل الدخول من index.html لتعيين كلمة سر جديدة قبل دخول المنصة.');return;}
+                if(!admin&&(profile.must_change_credentials||profile.account_type==='temporary'||profile.is_temporary===true)){renderAccessMessage('الحساب مؤقت','أكمل بيانات الحساب من صفحة تسجيل الدخول.');return;}
+                if(!admin&&profile.must_change_password){renderAccessMessage('تغيير كلمة السر مطلوب','سجّل الدخول من الموقع من البداية لتعيين كلمة سر جديدة قبل الدخول.');return;}
                 state.role=profile.role==='super_admin'?'super_admin':(admin?'admin':'member');
                 state.user={name:profile.full_name||profile.name||session.user.user_metadata?.full_name||'عضو',email:profile.email||session.user.email||'',phone:profile.phone_number||profile.phone||'',avatar:publicStorageUrl('avatars',profile.avatar_path||profile.avatar_url), profile_title:profile.profile_title||'', isOwnerAdmin:!!profile.is_owner_admin};
                 const firstOpen=!profile.first_opened_at&&!profile.first_seen_at;
