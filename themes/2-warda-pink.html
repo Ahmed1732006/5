@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>المنصة</title>
+    <title>لمسة وردية</title>
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -1750,20 +1750,6 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
         .manager-format-caption{font-size:.74rem;color:var(--text-muted);margin-bottom:4px}
 
         @media(max-width:700px){.welcome-user-avatar.manager-aware{width:116px!important;height:116px!important;border-radius:50%!important}.welcome-greeting-row{gap:14px!important}.header-brand .site-logo-image{width:36px!important;height:36px!important}.manager-trigger{width:30px!important;height:30px!important}}
-
-/* first-welcome modern layout */
-.first-welcome-card{max-width:600px!important;border:1px solid var(--border)!important;background:linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f6fbff))!important;box-shadow:0 30px 100px rgba(15,23,42,.20)!important}
-.first-welcome-top{display:flex;align-items:center;gap:18px;padding:6px 2px 18px}
-.first-welcome-avatar{width:102px;height:102px;border-radius:28px;overflow:hidden;background:var(--primary-bg,#eff6ff);border:3px solid var(--surface,#fff);box-shadow:0 14px 35px rgba(15,23,42,.14);display:grid;place-items:center;color:var(--primary);font-size:2rem;font-weight:900;flex:none}
-.first-welcome-avatar img{width:100%;height:100%;object-fit:cover}
-.first-welcome-title-wrap{flex:1;text-align:right}
-.first-welcome-kicker{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:var(--surface-alt,#f8fafc);border:1px solid var(--border);color:var(--primary);font-size:.72rem;font-weight:900;margin-bottom:7px}
-.first-welcome-title-wrap h3{margin:0!important;font-size:1.5rem!important;line-height:1.6;color:var(--text)!important}
-.first-welcome-highlight{margin:0!important;padding:16px 18px!important;border-radius:17px!important;background:linear-gradient(135deg,var(--primary-bg,#eff8ff),#fff)!important;border:1px solid var(--primary-light,#dbeafe)!important;color:var(--text)!important;font-size:1.08rem!important;font-weight:900!important;line-height:1.9!important}
-.first-welcome-sub{font-size:.95rem!important;line-height:1.9!important;margin:12px 2px!important}
-.first-welcome-start{min-width:180px}
-@media(max-width:700px){.first-welcome-top{align-items:flex-start;gap:12px}.first-welcome-avatar{width:82px;height:82px;border-radius:22px}.first-welcome-title-wrap h3{font-size:1.16rem!important}.first-welcome-highlight{font-size:.98rem!important}}
-
 </style>
 
 <style id="theme-flourish-pink">
@@ -1776,6 +1762,16 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
   .card:hover,.tool-card:hover,.section-card:hover{transform:translateY(-6px) rotate(-0.3deg) !important;}
   ::selection{background:#F9A8D4;color:#831843;}
 </style>
+
+<style id="midadThemeMissingFeaturesPatch">
+/* Shared feature additions: kept visual styling token-based so each theme keeps its own identity. */
+.color-swatch{width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:11px!important;position:relative!important;overflow:hidden!important;border:1px solid var(--border,#dbe5ef)!important;background:var(--surface,#fff)!important;cursor:pointer!important;box-sizing:border-box!important}.color-swatch::after{content:"";position:absolute;inset:7px;border-radius:7px;display:block}.color-swatch.active{outline:2px solid var(--primary,#0ea5e9);outline-offset:2px;box-shadow:0 0 0 3px rgba(14,165,233,.12)}
+.color-swatch.color-white::after{background:#fff;border:1px solid #cbd5e1}.color-swatch.color-black::after{background:#111827}.color-swatch.color-gold::after{background:#c58a13}.color-swatch.color-red::after{background:#dc2626}.color-swatch.color-purple::after{background:#7c3aed}.color-swatch.color-sky::after{background:#0ea5e9}.color-swatch.color-green::after{background:#16a34a}.color-swatch.color-blue::after{background:#2563eb}.color-swatch.color-orange::after{background:#f97316}.color-swatch.color-teal::after{background:#14b8a6}.color-swatch.color-pink::after{background:#db2777}.color-swatch.color-violet::after{background:#6d28d9}.color-swatch.color-cyan::after{background:#0891b2}.color-swatch.color-lime::after{background:#84cc16}.color-swatch.color-brown::after{background:#92400e}.color-swatch.color-rose::after{background:#e11d48}
+.welcome-user-action{border-color:color-mix(in srgb,var(--primary,#0ea5e9) 28%,var(--border,#dbe5ef))!important;background:color-mix(in srgb,var(--primary-bg,#eff8ff) 88%,var(--surface,#fff))!important;color:var(--primary-strong,var(--primary,#0369a1))!important}.admin-welcome-modal{max-width:620px!important}.welcome-modal-icon{background:var(--primary-bg,#eff8ff)!important;color:var(--primary,#2563eb)!important}.welcome-target-chip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;border:1px solid var(--border);border-radius:14px;background:var(--surface-alt,#f8fafc);margin:12px 0}.welcome-target-chip span{color:var(--text-muted);font-size:.74rem}.welcome-ready-preview{padding:18px;border-radius:17px;background:linear-gradient(135deg,var(--primary-bg,#eff8ff),var(--surface,#fff));border:1px solid var(--border);text-align:right}.welcome-ready-preview h4{margin:0;font-size:1.15rem;color:var(--text)}.welcome-ready-preview p{margin:9px 0 0;color:var(--text-secondary);line-height:1.9;font-size:.96rem}.welcome-mode-grid{margin:12px 0}.welcome-video-library-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px;align-items:stretch;margin-top:12px}.welcome-video-library-grid select{width:100%}.welcome-video-library-preview{min-height:150px;border:1px solid var(--border);border-radius:16px;background:#08111c;display:grid;place-items:center;overflow:hidden}.welcome-video-library-preview video{width:100%;height:100%;min-height:150px;max-height:220px;object-fit:contain;background:#000}.welcome-video-empty-preview{display:flex;flex-direction:column;align-items:center;gap:8px;color:#94a3b8;font-size:.8rem}.welcome-video-empty-preview i{font-size:2rem}
+.first-welcome-card{max-width:600px!important;border:1px solid var(--border)!important;background:linear-gradient(145deg,var(--surface,#fff),var(--primary-bg,#f6fbff))!important;box-shadow:0 30px 100px rgba(15,23,42,.20)!important}.first-welcome-top{display:flex;align-items:center;gap:18px;padding:6px 2px 18px}.first-welcome-avatar{width:102px;height:102px;border-radius:28px;overflow:hidden;background:var(--primary-bg,#eff6ff);border:3px solid var(--surface,#fff);box-shadow:0 14px 35px rgba(15,23,42,.14);display:grid;place-items:center;color:var(--primary);font-size:2rem;font-weight:900;flex:none}.first-welcome-avatar img{width:100%;height:100%;object-fit:cover}.first-welcome-title-wrap{flex:1;text-align:right}.first-welcome-title-wrap h3{margin:0!important;font-size:1.5rem!important;line-height:1.6;color:var(--text)!important}.first-welcome-highlight{margin:0!important;padding:16px 18px!important;border-radius:17px!important;background:linear-gradient(135deg,var(--primary-bg,#eff8ff),var(--surface,#fff))!important;border:1px solid var(--border)!important;color:var(--text)!important;font-size:1.08rem!important;font-weight:900!important;line-height:1.9!important}.first-welcome-sub{font-size:.95rem!important;line-height:1.9!important;margin:12px 2px!important}.first-welcome-start{min-width:180px}.um-user-card .um-card-actions{display:flex;flex-wrap:wrap;gap:7px}
+@media(max-width:700px){.welcome-video-library-grid{grid-template-columns:1fr}.first-welcome-top{align-items:flex-start;gap:12px}.first-welcome-avatar{width:82px;height:82px;border-radius:22px}.first-welcome-title-wrap h3{font-size:1.16rem!important}.first-welcome-highlight{font-size:.98rem!important}.welcome-target-chip{align-items:flex-start}.admin-welcome-modal{width:min(94vw,620px)!important}}
+</style>
+
 </head>
 <body>
 <div class="glass-blob" style="width:220px;height:220px;top:6%;right:4%;background:radial-gradient(circle,#F9A8D4,transparent 70%);"></div>
@@ -2193,7 +2189,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
         // ─── Login ───
 
         function renderLogin() {
-            return `<div class="login-wrap"><div class="login-brand"></div><div class="login-sub">جارٍ التحقق من تسجيل الدخول...</div></div>`;
+            return `<div class="login-wrap"><div class="login-brand"><img src="../1.png" alt="" style="width:54px;height:54px;border-radius:16px;object-fit:cover"></div><div class="login-sub">جارٍ التحقق من تسجيل الدخول...</div></div>`;
         }
 
         // ─── Header ───
@@ -2208,7 +2204,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             return `
             <header class="header">
               <div class="header-brand" data-act="go-home">
-                <span class="mark"><img class="site-logo-image" src="1.png" alt="" onerror="this.style.display='none'"><span></span></span>
+                <span class="mark"><img class="site-logo-image" src="../1.png" alt="" onerror="this.style.display='none'"></span>
               </div>
               <div class="header-actions">
                 ${isAdmin() ? `<button type="button" class="admin-panel-trigger" data-act="open-admin-panel" title="إدارة المستخدمين" aria-label="إدارة المستخدمين"><i class="fas fa-users-cog"></i></button>` : ''}
@@ -2679,6 +2675,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 state.users=profilesRes.data||[];
                 state.userRequests=requestsRes.data||[];
                 state.adminMessages=messagesRes.data||[];
+                await loadWelcomeVideoLibrary();
                 try{
                     const currentUserId = state.user?.id;
                     if(!currentUserId) throw new Error('انتهت جلسة الدخول.');
@@ -2742,6 +2739,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                       ${st.key!=='admin' && st.key!=='revoked' ? `<button data-act="user-revoke" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-ban"></i> رفض / إيقاف</button>`:''}
                       ${st.key==='revoked' ? `<button class="success" data-act="user-approve" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-rotate-left"></i> إعادة تفعيل</button>`:''}
                       ${st.key==='approved' ? `<button data-act="user-reapply" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-user-clock"></i> طلب إذن من جديد</button><button data-act="user-force-password" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-key"></i> تغيير كلمة السر عند الدخول</button>`:''}
+                      ${st.key!=='admin' ? `<button class="welcome-user-action" data-act="user-welcome" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-hand-sparkles"></i> ترحيب أول مرة</button>`:''}
                       ${st.key!=='admin' ? `<button data-act="user-edit" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-user-pen"></i> تعديل</button>`:''}
                       ${st.key!=='admin' ? `<button class="danger" data-act="user-delete" data-user-id="${escapeHtml(u.id)}"><i class="fas fa-trash"></i> حذف</button>`:''}
                     </div>
@@ -2828,10 +2826,23 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     <small class="access-help">اضغط Ctrl/⌘ لاختيار أكثر من شخص.</small>
                   </div>
                 </div>
+                <div class="welcome-video-library-grid">
+                  <div class="field">
+                    <label>الفيديو الموجود في المكتبة</label>
+                    <select id="welcome-video-library-select">
+                      <option value="">استخدم الفيديو الحالي / لا تغيير</option>
+                      ${(state.welcomeVideoLibrary||[]).map(v=>`<option value="${escapeHtml(v.path)}" ${(state.welcomeVideoCampaign?.video_path||'')===v.path?'selected':''}>${escapeHtml(v.name)}</option>`).join('')}
+                    </select>
+                    <small class="access-help">اختار أي فيديو مرفوع بالفعل بدل ما ترفعه من جديد.</small>
+                  </div>
+                  <div class="welcome-video-library-preview">
+                    ${state.welcomeVideoCampaign?.video_path ? `<video id="welcome-video-admin-preview" controls playsinline preload="metadata" src="${escapeHtml(publicStorageUrl('welcome-videos',state.welcomeVideoCampaign.video_path))}"></video>` : `<div class="welcome-video-empty-preview"><i class="fas fa-film"></i><span>لا يوجد فيديو محدد</span></div>`}
+                  </div>
+                </div>
                 <div class="field" style="margin-top:12px">
-                  <label>استبدال الفيديو</label>
-                  <input type="file" id="welcome-video-file" accept="video/mp4,video/webm,video/*">
-                  <small class="access-help">لو لم تختار ملفًا، يظل الفيديو الحالي كما هو. الفيديو يعمل فقط بعد أن يرفعه الأدمن ويقوم بتفعيله.</small>
+                  <label>رفع فيديو جديد</label>
+                  <input type="file" id="welcome-video-file" accept="video/mp4,video/webm,video/quicktime,video/*">
+                  <small class="access-help">رفع فيديو جديد يضيفه للمكتبة. ويمكن اختيار فيديو موجود من القائمة بعد ذلك.</small>
                 </div>
                 <div class="welcome-video-admin-controls">
                   <button class="btn-save" data-act="save-welcome-video"><i class="fas fa-floppy-disk"></i> حفظ إعدادات الفيديو</button>
@@ -2911,6 +2922,31 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                 return `<div class=\"overlay\" data-act=\"close-modal-overlay\"><div class=\"modal um-modal um-details-modal\" data-stop=\"1\"><div class=\"um-modal-icon\"><i class=\"fas fa-clock-rotate-left\"></i></div><h3>سجل مرات الدخول</h3><p class=\"um-modal-sub\">${escapeHtml(userDisplayName(u))} — ${escapeHtml(String(u.login_count??0))} مرات دخول.</p><div class=\"login-history-list\">${list}</div><div class=\"modal-actions\"><button class=\"btn-cancel\" data-act=\"close-modal\">إغلاق</button></div></div></div>`;
             }
 
+            if (m.kind === 'user-welcome') {
+                const u=m.user||{};
+                const readyTitle=`أهلا بيك يا ${userDisplayName(u)} 👋`;
+                const readyBody='نورتنا ✨ نتمنى تلاقي كل اللي محتاجه هنا وتكون تجربتك داخل المنصة أسهل وأفضل.';
+                const custom=m.mode==='custom';
+                return `
+                <div class="overlay" data-act="close-modal-overlay">
+                  <div class="modal um-modal admin-welcome-modal" data-stop="1">
+                    <div class="um-modal-icon welcome-modal-icon"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>ترحيب أول مرة</h3>
+                    <p class="um-modal-sub">هتظهر الرسالة للحساب المحدد مرة واحدة عند فتحه.</p>
+                    <div class="welcome-target-chip"><i class="fas fa-user"></i><strong>${escapeHtml(userDisplayName(u))}</strong><span>${escapeHtml(u.email||'بدون بريد')}</span></div>
+                    <div class="message-target-grid welcome-mode-grid">
+                      <button type="button" class="message-target ${!custom?'active':''}" data-act="welcome-mode" data-mode="ready"><i class="fas fa-wand-magic-sparkles"></i> الترحيب الجاهز</button>
+                      <button type="button" class="message-target ${custom?'active':''}" data-act="welcome-mode" data-mode="custom"><i class="fas fa-pen"></i> أكتب رسالتي</button>
+                    </div>
+                    ${!custom ? `<div class="welcome-ready-preview"><h4>${escapeHtml(readyTitle)}</h4><p>${escapeHtml(readyBody)}</p></div>` : `
+                    <div class="field"><label>عنوان الرسالة</label><input id="welcome-message-title" maxlength="120" placeholder="اكتب عنوان الترحيب"></div>
+                    <div class="field"><label>نص الرسالة</label><textarea id="welcome-message-body" rows="7" maxlength="2000" placeholder="اكتب الرسالة التي ستظهر للمستخدم..."></textarea></div>
+                    <div class="field"><label>صورة أو فيديو (اختياري)</label><input id="welcome-message-media" type="file" accept="image/png,image/jpeg,image/gif,video/mp4,video/webm,video/quicktime"><small class="field-hint">PNG / JPG / GIF / MP4 / WEBM / MOV — حد أقصى 25 ميجابايت.</small></div>`}
+                    <div class="modal-actions"><button class="btn-save" data-act="send-user-welcome">إرسال الترحيب مرة واحدة</button><button class="btn-cancel" data-act="close-modal">إلغاء</button></div>
+                  </div>
+                </div>`;
+            }
+
             if (m.kind === 'compose-user-message') {
                 const target=m.targetUserId||'all';
                 return `
@@ -2962,12 +2998,7 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
             if (m.kind === 'first-welcome') {
                 const u=state.user||{};
                 const avatar=u.avatar?`<img src="${escapeHtml(u.avatar)}" alt="">`:`<span>${escapeHtml((u.name||'م').trim().charAt(0).toUpperCase())}</span>`;
-                return `<div class="overlay first-welcome-overlay" data-act="close-modal-overlay"><div class="modal um-modal first-welcome-card" data-stop="1">
-                  <div class="first-welcome-top"><div class="first-welcome-avatar">${avatar}</div><div class="first-welcome-title-wrap"><span class="first-welcome-kicker">أول زيارة ✨</span><h3>أهلا بيك يا ${escapeHtml(u.name||'صاحبنا')} 👋</h3></div></div>
-                  <div class="first-welcome-highlight">أتمنى تحط صورة بروفايل عشان تستخدم الموقع بأحسن شكل ✨</div>
-                  <p class="um-modal-sub first-welcome-sub">صورتك هتخلي حسابك أوضح، وتجربتك داخل المنصة أحسن.</p>
-                  <div class="modal-actions"><button class="btn-save first-welcome-start" data-act="close-modal">يلا نبدأ 🚀</button></div>
-                </div></div>`;
+                return `<div class="overlay first-welcome-overlay" data-act="close-modal-overlay"><div class="modal um-modal first-welcome-card" data-stop="1"><div class="um-detail-hero" style="justify-content:center;text-align:center"><div class="um-detail-avatar" style="width:92px;height:92px;border-radius:50%;overflow:hidden">${avatar}</div></div><div style="text-align:center"><h3 style="font-size:1.4rem">أهلاً بيك في محاضرات 👋</h3><p class="um-modal-sub" style="margin-top:8px">نورت المنصة يا ${escapeHtml(u.name||'صاحبنا')} ✨<br>اتمنى تلاقي كل اللي محتاجه هنا وتكون المذاكرة أسهل عليك.</p></div><div class="modal-actions"><button class="btn-save" data-act="close-modal">يلا نبدأ 🚀</button></div></div></div>`;
             }
 
             if (m.kind === 'user-message') {
@@ -3128,6 +3159,16 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
                     <button type="button" class="color-swatch color-red ${m.textColor==='#dc2626'?'active':''}" data-text-color="#dc2626" title="أحمر"></button>
                     <button type="button" class="color-swatch color-purple ${m.textColor==='#7c3aed'?'active':''}" data-text-color="#7c3aed" title="بنفسجي"></button>
                     <button type="button" class="color-swatch color-sky ${m.textColor==='#0ea5e9'?'active':''}" data-text-color="#0ea5e9" title="سماوي"></button>
+                    <button type="button" class="color-swatch color-green ${m.textColor==='#16a34a'?'active':''}" data-text-color="#16a34a" title="أخضر"></button>
+                    <button type="button" class="color-swatch color-blue ${m.textColor==='#2563eb'?'active':''}" data-text-color="#2563eb" title="أزرق"></button>
+                    <button type="button" class="color-swatch color-orange ${m.textColor==='#f97316'?'active':''}" data-text-color="#f97316" title="برتقالي"></button>
+                    <button type="button" class="color-swatch color-teal ${m.textColor==='#14b8a6'?'active':''}" data-text-color="#14b8a6" title="فيروزي"></button>
+                    <button type="button" class="color-swatch color-pink ${m.textColor==='#db2777'?'active':''}" data-text-color="#db2777" title="وردي"></button>
+                    <button type="button" class="color-swatch color-violet ${m.textColor==='#6d28d9'?'active':''}" data-text-color="#6d28d9" title="بنفسجي غامق"></button>
+                    <button type="button" class="color-swatch color-cyan ${m.textColor==='#0891b2'?'active':''}" data-text-color="#0891b2" title="سماوي غامق"></button>
+                    <button type="button" class="color-swatch color-lime ${m.textColor==='#84cc16'?'active':''}" data-text-color="#84cc16" title="ليموني"></button>
+                    <button type="button" class="color-swatch color-brown ${m.textColor==='#92400e'?'active':''}" data-text-color="#92400e" title="بني"></button>
+                    <button type="button" class="color-swatch color-rose ${m.textColor==='#e11d48'?'active':''}" data-text-color="#e11d48" title="وردي داكن"></button>
                   </div>
                 </div>
                 <div class="content-access-panel">
@@ -3222,6 +3263,15 @@ display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:999
               wvAudience.addEventListener('change',()=>{
                 const box=document.getElementById('welcome-video-recipients-box');
                 if(box) box.classList.toggle('show', wvAudience.value==='selected');
+              });
+            }
+            const wvLibrary=document.getElementById('welcome-video-library-select');
+            if(wvLibrary){
+              wvLibrary.addEventListener('change',()=>{
+                const v=document.getElementById('welcome-video-admin-preview');
+                const path=wvLibrary.value||state.welcomeVideoCampaign?.video_path||'';
+                if(!v) return;
+                if(path){v.src=publicStorageUrl('welcome-videos',path);v.style.display='block';} else {v.removeAttribute('src');v.style.display='none';}
               });
             }
             const vis = document.getElementById('content-visibility');
@@ -3380,6 +3430,48 @@ function onManagerPageAvatarChange(e){
                     if(u) openModal('user-edit',{user:u});
                     break;
                 }
+                case 'user-welcome': {
+                    const u=state.users.find(x=>String(x.id)===String(el.dataset.userId));
+                    if(u) openModal('user-welcome',{user:u,mode:'ready'});
+                    break;
+                }
+                case 'welcome-mode': {
+                    const u=state.modal?.user||state.users.find(x=>String(x.id)===String(state.modal?.userId));
+                    openModal('user-welcome',{user:u,mode:el.dataset.mode==='custom'?'custom':'ready'});
+                    break;
+                }
+                case 'send-user-welcome': {
+                    const m=state.modal||{}; const u=m.user||{};
+                    const custom=m.mode==='custom';
+                    const title=(document.getElementById('welcome-message-title')?.value||'').trim();
+                    const body=(document.getElementById('welcome-message-body')?.value||'').trim();
+                    const mediaFile=document.getElementById('welcome-message-media')?.files?.[0]||null;
+                    const readyTitle=`أهلا بيك يا ${userDisplayName(u)} 👋`;
+                    const readyBody='نورتنا ✨ نتمنى تلاقي كل اللي محتاجه هنا وتكون تجربتك داخل المنصة أسهل وأفضل.';
+                    const finalTitle=custom?title:readyTitle;
+                    let finalBody=custom?body:readyBody;
+                    if(!finalTitle || (!finalBody && !mediaFile)) return showToast('أكمل عنوان الرسالة ونصها أو اختر مرفقًا.','error');
+                    if(mediaFile && mediaFile.size>25*1024*1024) return showToast('حجم المرفق يجب ألا يتجاوز 25 ميجابايت.','error');
+                    const btn=el; btn.disabled=true; btn.textContent='جاري الإرسال…';
+                    try{
+                        let marker='';
+                        if(mediaFile){
+                            if(!(mediaFile.type.startsWith('image/')||mediaFile.type.startsWith('video/'))) throw new Error('الصورة أو الفيديو غير مدعوم.');
+                            const ext=(mediaFile.name.split('.').pop()||'bin').toLowerCase();
+                            const type=mediaFile.type.startsWith('video/')?'video':'image';
+                            const path=`messages/${crypto.randomUUID()}.${ext}`;
+                            const up=await sb.storage.from('admin-messages').upload(path,mediaFile,{upsert:false,contentType:mediaFile.type||undefined});
+                            if(up.error) throw up.error;
+                            marker=`[[MIDAD_MEDIA|${type}|${encodeURIComponent(path)}]]`;
+                        }
+                        if(marker) finalBody=(finalBody?finalBody+'\n\n':'')+marker;
+                        const {error}=await sb.from('user_messages').insert({target_user_id:u.id,title:finalTitle,body:finalBody,max_views:1,is_active:true});
+                        if(error) throw error;
+                        closeModal(); await openUsersManagement(); showToast('تم إرسال ترحيب أول مرة للحساب المحدد.','success');
+                    }catch(err){showToast(`تعذر إرسال الترحيب: ${err.message||'خطأ غير معروف'}`,'error');btn.disabled=false;btn.textContent='إرسال الترحيب مرة واحدة';}
+                    break;
+                }
+
                 case 'compose-user-message': {
                     openModal('compose-user-message',{targetUserId:'all'});
                     break;
@@ -3445,7 +3537,7 @@ function onManagerPageAvatarChange(e){
                     const file=input?.files?.[0];
                     const btn=el; btn.disabled=true; btn.textContent='جاري الحفظ…';
                     try{
-                        let video_path=state.welcomeVideoCampaign?.video_path||'';
+                        let video_path=document.getElementById('welcome-video-library-select')?.value || state.welcomeVideoCampaign?.video_path||'';
                         if(file){
                             if(!file.type.startsWith('video/')) throw new Error('اختار ملف فيديو صحيح.');
                             video_path=await uploadFile('welcome-videos',file,`campaign/${Date.now()}`);
@@ -3648,7 +3740,7 @@ function onManagerPageAvatarChange(e){
                 case 'logout': {
                     explicitLogout=true;
                     await sb.auth.signOut();
-                    location.replace('index.html');
+                    location.replace('../index.html');
                     return;
                 }
 
@@ -4088,9 +4180,33 @@ function onManagerPageAvatarChange(e){
         // ════════════════════════════════════════════════════════════════════
         function renderAccessMessage(title,text,buttonText='العودة لتسجيل الدخول'){
             const app=document.getElementById('app');
-            app.innerHTML=`<div class="login-wrap"><div class="login-brand"></div><div class="login-sub"><strong>${title}</strong><br><span>${text}</span><br><button class="login-btn" style="margin-top:18px" onclick="location.replace('index.html')">${buttonText}</button></div></div>`;
+            app.innerHTML=`<div class="login-wrap"><div class="login-brand"><img src="../1.png" alt="" style="width:54px;height:54px;border-radius:16px;object-fit:cover"></div><div class="login-sub"><strong>${title}</strong><br><span>${text}</span><br><button class="login-btn" style="margin-top:18px" onclick="location.replace('../index.html')">${buttonText}</button></div></div>`;
         }
 
+        async function listWelcomeVideoObjects(path=''){
+            const out=[];
+            try{
+                const {data,error}=await sb.storage.from('welcome-videos').list(path,{limit:100,offset:0,sortBy:{column:'name',order:'asc'}});
+                if(error) throw error;
+                for(const item of (data||[])){
+                    if(!item?.name) continue;
+                    const childPath=path ? `${path}/${item.name}` : item.name;
+                    const isFolder=!item.id && !item.metadata;
+                    if(isFolder){
+                        const nested=await listWelcomeVideoObjects(childPath);
+                        out.push(...nested);
+                    }else{
+                        const ext=(item.name.split('.').pop()||'').toLowerCase();
+                        if(['mp4','webm','mov','m4v'].includes(ext)) out.push({path:childPath,name:item.name,size:item.metadata?.size||0,updated:item.updated_at||item.created_at||''});
+                    }
+                }
+            }catch(err){ console.warn('welcome video library',err); }
+            return out;
+        }
+        async function loadWelcomeVideoLibrary(){
+            state.welcomeVideoLibrary=await listWelcomeVideoObjects('');
+            return state.welcomeVideoLibrary;
+        }
         async function loadWelcomeVideoCampaign(){
             try{
                 const {data,error}=await sb.from('welcome_video_campaign').select('*').eq('id',1).maybeSingle();
@@ -4129,7 +4245,7 @@ function onManagerPageAvatarChange(e){
         async function bootApp(){
             try{
                 const {data:{session}}=await sb.auth.getSession();
-                if(!session?.user){renderAccessMessage('لا توجد جلسة دخول','افتح index.html وسجل الدخول أولًا.');return;}
+                if(!session?.user){renderAccessMessage('لا توجد جلسة دخول','افتح الموقع من البداية وسجّل الدخول أولًا.');return;}
                 currentAuthUser = session.user;
                 const {data:profile,error}=await sb.from('profiles').select('*').eq('id',session.user.id).maybeSingle();
                 if(error)throw error;
@@ -4137,8 +4253,8 @@ function onManagerPageAvatarChange(e){
                 const admin=profile.role==='admin';
                 if(!admin&&profile.status==='revoked'){renderAccessMessage('الحساب موقوف','تواصل مع الإدارة لإعادة التفعيل.');return;}
                 if(!admin&&profile.status==='pending'){renderAccessMessage('الحساب في انتظار الموافقة','بعد الموافقة ستتمكن من الدخول.');return;}
-                if(!admin&&(profile.must_change_credentials||profile.account_type==='temporary'||profile.is_temporary===true)){renderAccessMessage('الحساب مؤقت','أكمل بيانات الحساب من index.html أولًا.');return;}
-                if(!admin&&profile.must_change_password){renderAccessMessage('تغيير كلمة السر مطلوب','سجّل الدخول من index.html لتعيين كلمة سر جديدة قبل دخول المنصة.');return;}
+                if(!admin&&(profile.must_change_credentials||profile.account_type==='temporary'||profile.is_temporary===true)){renderAccessMessage('الحساب مؤقت','أكمل بيانات الحساب من الموقع من البداية أولًا.');return;}
+                if(!admin&&profile.must_change_password){renderAccessMessage('تغيير كلمة السر مطلوب','سجّل الدخول من الموقع من البداية لتعيين كلمة سر جديدة قبل دخول المنصة.');return;}
                 state.role=profile.role==='super_admin'?'super_admin':(admin?'admin':'member');
                 state.user={name:profile.full_name||profile.name||session.user.user_metadata?.full_name||'عضو',email:profile.email||session.user.email||'',phone:profile.phone_number||profile.phone||'',avatar:publicStorageUrl('avatars',profile.avatar_path||profile.avatar_url), profile_title:profile.profile_title||'', isOwnerAdmin:!!profile.is_owner_admin};
                 const firstOpen=!profile.first_opened_at&&!profile.first_seen_at;
@@ -4162,7 +4278,7 @@ function onManagerPageAvatarChange(e){
             }catch(e){console.error(e);renderAccessMessage('تعذر تحميل المنصة',e.message||'خطأ غير معروف.');}
         }
         let explicitLogout=false;
-        sb.auth.onAuthStateChange((event)=>{if(event==='SIGNED_OUT'&&explicitLogout)location.replace('index.html');});
+        sb.auth.onAuthStateChange((event)=>{if(event==='SIGNED_OUT'&&explicitLogout)location.replace('../index.html');});
 
         bootApp();
 
