@@ -26,7 +26,7 @@
     'theme-saas': { display_name: 'التصميم الإبداعي', route: 'themes/theme-3/index.html' }
   };
 
-  const state = { themes: [], user: null, profile: null, isAdmin: false };
+  const state = { themes: [], user: null, profile: null, isAdmin: false, userThemeButtonEnabled: false };
   const $ = (s, r = document) => r.querySelector(s);
   const esc = v => String(v ?? '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -178,8 +178,8 @@
       } catch (_) {}
     }
 
-    if (state.isAdmin) setupAdminUI();
-    else await setupUserThemeButton();
+    if (state.isAdmin) { setupAdminUI(); observeThemeButton(); }
+    else { await setupUserThemeButton(); observeThemeButton(); }
   }
 
   function addThemeButton() {
@@ -216,7 +216,7 @@
       'left:auto',
       'top:auto',
       'transform:none',
-      'z-index:20',
+      'z-index:100',
       'display:inline-flex',
       'align-items:center',
       'justify-content:center',
@@ -253,6 +253,31 @@
     return true;
   }
 
+  function observeThemeButton() {
+    if (window.__midadThemeHeaderObserver) return;
+    const start = () => {
+      const app = document.querySelector('#app');
+      if (!app) return false;
+      const obs = new MutationObserver(() => {
+        if (window.__midadThemeButtonRaf) cancelAnimationFrame(window.__midadThemeButtonRaf);
+        window.__midadThemeButtonRaf = requestAnimationFrame(() => {
+          if (state.isAdmin) addThemeButton();
+          else if (state.userThemeButtonEnabled) addThemeButton();
+        });
+      });
+      obs.observe(app, {childList:true, subtree:true});
+      window.__midadThemeHeaderObserver = obs;
+      return true;
+    };
+    if (!start()) {
+      let tries = 0;
+      const timer = setInterval(() => {
+        tries++;
+        if (start() || tries > 40) clearInterval(timer);
+      }, 100);
+    }
+  }
+
   function setupAdminUI() {
     addManageButton();
     const ensureHeaderButton = () => addThemeButton();
@@ -270,8 +295,9 @@
   async function setupUserThemeButton() {
     try {
       const { data: p } = await client.from('user_theme_preferences').select('themes_button_enabled').eq('user_id', state.user.id).maybeSingle();
-      if (p?.themes_button_enabled) addThemeButton();
-    } catch (_) {}
+      state.userThemeButtonEnabled = !!p?.themes_button_enabled;
+      if (state.userThemeButtonEnabled) addThemeButton();
+    } catch (_) { state.userThemeButtonEnabled = false; }
   }
 
   function addManageButton() {
@@ -375,6 +401,9 @@
     if (k === 'theme-6') return `<div class="midad-preview-art art-theme-6"><div class="pv-top"><b></b><span></span><em></em></div><div class="pv-banner"><i></i><b></b></div><div class="pv-grid"><i></i><i></i><i></i></div></div>`;
     if (k === 'theme-7') return `<div class="midad-preview-art art-theme-7"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-layout"><div class="pv-main"><i></i><i></i><i></i></div><div class="pv-side"><i></i><i></i></div></div></div>`;
     if (k === 'theme-8') return `<div class="midad-preview-art art-theme-8"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-banner"><i></i><b></b></div><div class="pv-cards"><i></i><i></i><i></i></div></div>`;
+    if (k === 'theme-baby-blue') return `<div class="midad-preview-art art-baby-blue"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-banner"><i></i><b></b></div><div class="pv-grid"><i></i><i></i><i></i></div></div>`;
+    if (k === 'theme-aurora-glass') return `<div class="midad-preview-art art-aurora-glass"><div class="pv-glass-top"><b></b><span></span><em></em></div><div class="pv-glass-body"><div class="pv-glass-card"><i></i><i></i><i></i></div><div class="pv-glass-side"><i></i><i></i></div></div></div>`;
+    if (k === 'theme-warda-pink') return `<div class="midad-preview-art art-warda-pink"><div class="pv-pink-top"><b></b><span></span><span></span></div><div class="pv-pink-hero"><i></i><b></b></div><div class="pv-pink-cards"><i></i><i></i><i></i></div></div>`;
     return `<div class="midad-preview-art art-default"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-layout"><div class="pv-side"><i></i><i></i><i></i></div><div class="pv-main"><i></i><i></i><i></i></div></div></div>`;
   }
 
@@ -531,7 +560,7 @@
     const s = document.createElement('style'); s.id = 'midadThemeStyles';
     s.textContent = `
       .header{position:relative}
-      #midadThemeButton{pointer-events:auto}
+      #midadThemeButton{pointer-events:auto!important;display:inline-flex!important;visibility:visible!important;opacity:1!important}
       .midad-theme-overlay{position:fixed;inset:0;background:rgba(2,6,23,.62);backdrop-filter:blur(8px);z-index:99995;display:flex;align-items:center;justify-content:center;padding:18px;direction:rtl;animation:midadFade .2s ease}
       .midad-theme-modal{width:min(1040px,96vw);max-height:90vh;overflow:auto;background:var(--surface,#fff);color:var(--text,#0f172a);border:1px solid var(--border,#e2e8f0);border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.25);padding:22px}
       .midad-theme-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-bottom:14px;border-bottom:1px solid var(--border,#e2e8f0)}
@@ -550,6 +579,9 @@
       .art-theme-6{background:#edf3fb;padding:9px}.art-theme-6 .pv-top{height:20px;border-radius:6px;background:#2a578e;display:flex;align-items:center;gap:6px;padding:0 7px}.art-theme-6 .pv-top b{width:25px;height:7px;background:#f2d071;border-radius:4px;margin-left:auto}.art-theme-6 .pv-top span{width:13px;height:5px;background:#a9c2df}.art-theme-6 .pv-top em{width:18px;height:8px;background:#f2d071;border-radius:4px}.art-theme-6 .pv-banner{height:38px;margin-top:8px;background:#fff;border:1px solid #b9cae0;border-radius:8px;padding:7px}.art-theme-6 .pv-banner i{height:7px;background:#2a578e;border-radius:4px;width:75%}.art-theme-6 .pv-banner b{display:block;width:35%;height:6px;background:#f2d071;border-radius:4px;margin-top:8px}.art-theme-6 .pv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:7px}.art-theme-6 .pv-grid i{height:57px;background:#fff;border:1px solid #b9cae0;border-radius:8px}
       .art-theme-7{background:#e7f3ed;padding:9px}.art-theme-7 .pv-top{background:#1f6e52;border:0}.art-theme-7 .pv-top b{width:24px;height:7px;background:#d8f4e3;border-radius:4px;margin-left:auto}.art-theme-7 .pv-layout{display:grid;grid-template-columns:1fr 62px;gap:7px;margin-top:8px}.art-theme-7 .pv-main{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.art-theme-7 .pv-main i{height:67px;background:#fff;border:1px solid #9bd3bb;border-radius:8px}.art-theme-7 .pv-side i{height:31px;background:#d9eee4;border:1px solid #9bd3bb;border-radius:7px;margin-bottom:7px}.art-theme-7 .pv-side i:last-child{height:41px;background:#fff}
       .art-theme-8{background:#f8ebee;padding:9px}.art-theme-8 .pv-top{background:#7a2e42;border:0}.art-theme-8 .pv-top b{width:25px;height:7px;background:#f2d3a7;border-radius:4px;margin-left:auto}.art-theme-8 .pv-banner{height:38px;margin-top:8px;background:#fff;border:1px solid #dfbdc6;border-radius:8px;padding:7px}.art-theme-8 .pv-banner i{height:7px;background:#7a2e42;border-radius:4px}.art-theme-8 .pv-banner b{display:block;width:62%;height:6px;background:#d6b178;border-radius:4px;margin-top:8px}.art-theme-8 .pv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:7px}.art-theme-8 .pv-cards i{height:57px;background:#fff;border:1px solid #dfbdc6;border-radius:8px}
+      .art-baby-blue{background:#f0f9ff;padding:9px}.art-baby-blue .pv-top{height:20px;border-radius:7px;background:#7dd3fc;display:flex;align-items:center;gap:5px;padding:0 7px}.art-baby-blue .pv-top b{width:24px;height:7px;border-radius:4px;background:#ffffff;margin-left:auto}.art-baby-blue .pv-top span{width:13px;height:5px;border-radius:4px;background:#bae6fd}.art-baby-blue .pv-banner{height:40px;margin-top:8px;background:#ffffff;border:1px solid #bae6fd;border-radius:9px;padding:7px}.art-baby-blue .pv-banner i{height:7px;background:#38bdf8;border-radius:4px;width:74%}.art-baby-blue .pv-banner b{display:block;width:38%;height:6px;background:#c4b5fd;border-radius:4px;margin-top:8px}.art-baby-blue .pv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:7px}.art-baby-blue .pv-grid i{height:57px;background:#fff;border:1px solid #dceef9;border-radius:8px}
+      .art-aurora-glass{background:linear-gradient(135deg,#eefdfb,#f5f3ff);padding:9px}.art-aurora-glass .pv-glass-top{height:22px;border-radius:8px;background:linear-gradient(90deg,#5eead4,#a78bfa);display:flex;align-items:center;gap:5px;padding:0 7px;box-shadow:inset 0 1px rgba(255,255,255,.7)}.art-aurora-glass .pv-glass-top b{width:22px;height:7px;background:#fff;border-radius:4px;margin-left:auto}.art-aurora-glass .pv-glass-top span{width:13px;height:5px;background:rgba(255,255,255,.7);border-radius:4px}.art-aurora-glass .pv-glass-top em{width:18px;height:8px;background:rgba(255,255,255,.85);border-radius:6px}.art-aurora-glass .pv-glass-body{display:grid;grid-template-columns:1fr 56px;gap:7px;margin-top:8px}.art-aurora-glass .pv-glass-card{height:92px;background:rgba(255,255,255,.72);border:1px solid #b5eee6;border-radius:10px;padding:8px;backdrop-filter:blur(3px)}.art-aurora-glass .pv-glass-card i{height:8px;background:#0f766e;border-radius:5px;margin-bottom:8px}.art-aurora-glass .pv-glass-card i:nth-child(2){background:#7c3aed;width:78%}.art-aurora-glass .pv-glass-card i:nth-child(3){background:#c4b5fd;width:52%}.art-aurora-glass .pv-glass-side i{height:41px;background:rgba(255,255,255,.7);border:1px solid #c6c9ff;border-radius:8px;margin-bottom:9px}
+      .art-warda-pink{background:#fff0f7;padding:9px}.art-warda-pink .pv-pink-top{height:22px;border-radius:8px;background:linear-gradient(90deg,#ec4899,#fb7185);display:flex;align-items:center;gap:5px;padding:0 7px}.art-warda-pink .pv-pink-top b{width:24px;height:7px;border-radius:4px;background:#fff;margin-left:auto}.art-warda-pink .pv-pink-top span{width:13px;height:5px;border-radius:4px;background:#ffd1e7}.art-warda-pink .pv-pink-hero{height:45px;margin-top:8px;background:#fff;border:1px solid #fbcfe8;border-radius:9px;padding:7px;display:grid;grid-template-columns:1fr 38px;gap:8px}.art-warda-pink .pv-pink-hero i{height:7px;background:#db2777;border-radius:4px;margin-top:2px}.art-warda-pink .pv-pink-hero i:after{content:'';display:block;width:74%;height:6px;background:#f9a8d4;border-radius:4px;margin-top:9px}.art-warda-pink .pv-pink-hero b{background:#fbcfe8;border-radius:8px}.art-warda-pink .pv-pink-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:7px}.art-warda-pink .pv-pink-cards i{height:57px;background:#fff;border:1px solid #f9a8d4;border-radius:8px}
       .midad-theme-card>strong{display:block;margin-top:9px;font:800 14px Cairo}.midad-default{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:99px;background:#ecfdf5;color:#047857;font:800 10px Cairo}
       .midad-primary{width:100%;margin-top:18px;padding:12px;border:0;border-radius:13px;background:linear-gradient(135deg,#0ea5e9,#7c3aed);color:#fff;font:900 14px Cairo;cursor:pointer}.midad-select{width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--border,#e2e8f0);background:var(--surface,#fff);font:700 13px Cairo;color:inherit;direction:rtl}
       .midad-switch-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px dashed var(--border,#e2e8f0)}.midad-switch-row b{display:block;font:800 14px Cairo}.midad-switch-row small{display:block;color:var(--text-secondary,#64748b);font:600 11px Cairo;margin-top:3px}.midad-switch input{display:none}.midad-switch span{display:block;width:52px;height:30px;border-radius:99px;background:#cbd5e1;position:relative;cursor:pointer;transition:.2s}.midad-switch span:after{content:'';position:absolute;top:3px;right:3px;width:24px;height:24px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 2px 6px rgba(0,0,0,.15)}.midad-switch input:checked+span{background:#0ea5e9}.midad-switch input:checked+span:after{right:25px}.midad-allowed{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px;padding:12px;background:var(--surface-alt,#f8fafc);border-radius:14px}.midad-allowed label{padding:8px 10px;border:1px solid var(--border,#e2e8f0);border-radius:11px;font:700 12px Cairo;background:var(--surface,#fff)}
