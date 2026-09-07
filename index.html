@@ -1183,7 +1183,7 @@
                     sessionStorage.removeItem('mohadarat_temporary_email');
 
                     e.target.reset();
-                    showPendingNotice('تم إرسال طلبك', 'تم حفظ بيانات الحساب وإرسال طلبك للمراجعة.<br><br>البريد المستخدم لتسجيل الدخول: <strong>'+newEmail+'</strong><br>كلمة السر: كلمة السر الجديدة التي اخترتها.<br><br>انتظر مراجعة الإدارة قبل محاولة الدخول.');
+                    showPendingNotice('تم إرسال طلبك', 'تم حفظ بيانات الحساب وإرسال طلبك للمراجعة. البريد المستخدم لتسجيل الدخول: '+newEmail+'، وكلمة السر هي كلمة السر الجديدة التي اخترتها. انتظر مراجعة الإدارة قبل محاولة الدخول.');
                 }catch(err){
                     const raw=String(err?.message||'');
                     if(raw.toLowerCase().includes('email already in use') || raw.toLowerCase().includes('email_exists'))
@@ -1235,7 +1235,7 @@
                     }
 
                     e.target.reset();
-                    showPendingNotice('تم إرسال طلبك', 'تم إنشاء الحساب وإرسال طلبك للمراجعة.<br><br>البريد الإلكتروني وكلمة السر اللذان أنشأتهما هما بيانات تسجيل الدخول الخاصة بك.<br><br>انتظر مراجعة الإدارة قبل الدخول.');
+                    showPendingNotice('تم إرسال طلبك', 'تم إنشاء الحساب وإرسال طلبك للمراجعة. البريد الإلكتروني وكلمة السر اللذان أنشأتهما هما بيانات تسجيل الدخول الخاصة بك. انتظر مراجعة الإدارة قبل الدخول.');
                 }catch(err){
                     message(friendlyAuthError(err,'حدث خطأ أثناء إنشاء الحساب. حاول مرة أخرى.'),'error');
                 }finally{
