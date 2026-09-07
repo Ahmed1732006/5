@@ -87,6 +87,12 @@
     return key;
   }
 
+  function normalizeThemeRow(row) {
+    const key = canonicalKey(String(row?.theme_key || '').trim());
+    const def = THEME_MAP[key];
+    return { ...row, theme_key: key, route: def?.route || row?.route || '2.html' };
+  }
+
   const toast = (msg, ok = true) => {
     let x = document.getElementById('midad-theme-toast');
     if (!x) {
@@ -121,7 +127,7 @@
         .map(([theme_key, x], i) => ({ id: null, theme_key, display_name: x.display_name, sort_order: i + 1, route: x.route, is_active: true, is_default: theme_key === 'default' }));
       return state.themes;
     }
-    state.themes = data.filter(x => x.is_active !== false).sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
+    state.themes = data.filter(x => x.is_active !== false).map(normalizeThemeRow).sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
     if (!state.themes.length) {
       state.themes = Object.entries(THEME_MAP)
         .filter(([k]) => ['default','theme-1','theme-2','theme-3','theme-4','theme-5','theme-6','theme-7','theme-8','theme-baby-blue','theme-aurora-glass','theme-warda-pink'].includes(k))
