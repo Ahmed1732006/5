@@ -8,7 +8,6 @@
 
   // Canonical map to the files that actually exist in the repository.
   const THEME_MAP = {
-    'default': { display_name: 'التصميم الأساسي', route: '2.html' },
     'theme-1': { display_name: 'التصميم 1', route: 'themes/theme-1/2.html' },
     'theme-2': { display_name: 'التصميم الأخضر', route: 'themes/theme-2/2.html' },
     'theme-3': { display_name: 'التصميم الإبداعي', route: 'themes/theme-3/index.html' },
@@ -36,7 +35,7 @@
     const key = String(t?.theme_key || '').trim();
     const map = THEME_MAP[key];
     if (map) return map;
-    return { display_name: t?.display_name || key || 'سمة', route: t?.route || '2.html' };
+    return { display_name: t?.display_name || key || 'سمة', route: t?.route || THEME_MAP['theme-1'].route };
   }
 
   function displayName(t) {
@@ -77,7 +76,7 @@
     if (p.includes('2-baby-blue.html') || p.endsWith('/2-baby-blue.html')) return 'theme-baby-blue';
     if (p.includes('2-aurora-glass.html') || p.endsWith('/2-aurora-glass.html')) return 'theme-aurora-glass';
     if (p.includes('2-warda-pink.html') || p.endsWith('/2-warda-pink.html')) return 'theme-warda-pink';
-    return 'default';
+    return 'theme-1';
   }
 
   function canonicalKey(key) {
@@ -90,7 +89,7 @@
   function normalizeThemeRow(row) {
     const key = canonicalKey(String(row?.theme_key || '').trim());
     const def = THEME_MAP[key];
-    return { ...row, theme_key: key, route: def?.route || row?.route || '2.html' };
+    return { ...row, theme_key: key, route: def?.route || row?.route || THEME_MAP['theme-1'].route };
   }
 
   const toast = (msg, ok = true) => {
@@ -123,15 +122,15 @@
     const { data, error } = await client.from('platform_themes').select('*').order('sort_order', { ascending: true });
     if (error || !Array.isArray(data)) {
       state.themes = Object.entries(THEME_MAP)
-        .filter(([k]) => ['default','theme-1','theme-2','theme-3','theme-4','theme-5','theme-6','theme-7','theme-8','theme-baby-blue','theme-aurora-glass','theme-warda-pink'].includes(k))
-        .map(([theme_key, x], i) => ({ id: null, theme_key, display_name: x.display_name, sort_order: i + 1, route: x.route, is_active: true, is_default: theme_key === 'default' }));
+        .filter(([k]) => ['theme-1','theme-2','theme-3','theme-4','theme-5','theme-6','theme-7','theme-8','theme-baby-blue','theme-aurora-glass','theme-warda-pink'].includes(k))
+        .map(([theme_key, x], i) => ({ id: null, theme_key, display_name: x.display_name, sort_order: i + 1, route: x.route, is_active: true, is_default: theme_key === 'theme-1' }));
       return state.themes;
     }
     state.themes = data.filter(x => x.is_active !== false).map(normalizeThemeRow).sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
     if (!state.themes.length) {
       state.themes = Object.entries(THEME_MAP)
-        .filter(([k]) => ['default','theme-1','theme-2','theme-3','theme-4','theme-5','theme-6','theme-7','theme-8','theme-baby-blue','theme-aurora-glass','theme-warda-pink'].includes(k))
-        .map(([theme_key, x], i) => ({ id: null, theme_key, display_name: x.display_name, sort_order: i + 1, route: x.route, is_active: true, is_default: theme_key === 'default' }));
+        .filter(([k]) => ['theme-1','theme-2','theme-3','theme-4','theme-5','theme-6','theme-7','theme-8','theme-baby-blue','theme-aurora-glass','theme-warda-pink'].includes(k))
+        .map(([theme_key, x], i) => ({ id: null, theme_key, display_name: x.display_name, sort_order: i + 1, route: x.route, is_active: true, is_default: theme_key === 'theme-1' }));
     }
     return state.themes;
   }
@@ -144,10 +143,10 @@
         const t = themes.find(x => String(x.id) === String(pref.theme_id));
         if (t) return absRoute(canonicalRoute(t));
       }
-      const t = themes.find(x => x.is_default) || themes[0];
+      const t = themes.find(x => x.is_default && canonicalKey(x.theme_key) !== 'default') || themes.find(x => canonicalKey(x.theme_key) === 'theme-1') || themes[0];
       return absRoute(canonicalRoute(t));
     } catch (_) {
-      return absRoute('2.html');
+      return absRoute(THEME_MAP['theme-1'].route);
     }
   }
   window.midadChooseTheme = choose;
@@ -392,7 +391,7 @@
   }
 
   function previewArt(t) {
-    const k = canonicalKey(t?.theme_key || 'default');
+    const k = canonicalKey(t?.theme_key || 'theme-1');
     if (k === 'theme-1') return `<div class="midad-preview-art art-theme-1"><div class="pv-nav"><b></b><span></span><span></span><span></span></div><div class="pv-canvas"><div class="pv-hero"><i></i><i></i></div><div class="pv-cards"><i></i><i></i><i></i></div></div></div>`;
     if (k === 'theme-2') return `<div class="midad-preview-art art-theme-3"><div class="pv-top"><b></b><span></span><span></span><em></em></div><div class="pv-hero"><i></i><b></b></div><div class="pv-grid"><i></i><i></i><i></i></div></div>`;
     if (k === 'theme-3') return `<div class="midad-preview-art art-theme-2"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-layout"><div class="pv-side"><i></i><i></i><i></i></div><div class="pv-stack"><i></i><i></i></div></div></div>`;
@@ -404,7 +403,7 @@
     if (k === 'theme-baby-blue') return `<div class="midad-preview-art art-baby-blue"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-banner"><i></i><b></b></div><div class="pv-grid"><i></i><i></i><i></i></div></div>`;
     if (k === 'theme-aurora-glass') return `<div class="midad-preview-art art-aurora-glass"><div class="pv-glass-top"><b></b><span></span><em></em></div><div class="pv-glass-body"><div class="pv-glass-card"><i></i><i></i><i></i></div><div class="pv-glass-side"><i></i><i></i></div></div></div>`;
     if (k === 'theme-warda-pink') return `<div class="midad-preview-art art-warda-pink"><div class="pv-pink-top"><b></b><span></span><span></span></div><div class="pv-pink-hero"><i></i><b></b></div><div class="pv-pink-cards"><i></i><i></i><i></i></div></div>`;
-    return `<div class="midad-preview-art art-default"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-layout"><div class="pv-side"><i></i><i></i><i></i></div><div class="pv-main"><i></i><i></i><i></i></div></div></div>`;
+    return `<div class="midad-preview-art art-theme-1"><div class="pv-nav"><b></b><span></span><span></span><span></span></div><div class="pv-canvas"><div class="pv-hero"><i></i><i></i></div><div class="pv-cards"><i></i><i></i><i></i></div></div></div>`;
   }
 
   async function openThemePicker(mode) {
