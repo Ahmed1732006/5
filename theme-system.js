@@ -35,7 +35,7 @@
     const key = String(t?.theme_key || '').trim();
     const map = THEME_MAP[key];
     if (map) return map;
-    return { display_name: t?.display_name || key || 'سمة', route: t?.route || THEME_MAP['theme-1'].route };
+    return { display_name: t?.display_name || key || 'سمة', route: t?.route || '2.html' };
   }
 
   function displayName(t) {
@@ -89,7 +89,7 @@
   function normalizeThemeRow(row) {
     const key = canonicalKey(String(row?.theme_key || '').trim());
     const def = THEME_MAP[key];
-    return { ...row, theme_key: key, route: def?.route || row?.route || THEME_MAP['theme-1'].route };
+    return { ...row, theme_key: key, route: def?.route || row?.route || 'themes/theme-1/2.html' };
   }
 
   const toast = (msg, ok = true) => {
@@ -143,10 +143,10 @@
         const t = themes.find(x => String(x.id) === String(pref.theme_id));
         if (t) return absRoute(canonicalRoute(t));
       }
-      const t = themes.find(x => x.is_default && canonicalKey(x.theme_key) !== 'default') || themes.find(x => canonicalKey(x.theme_key) === 'theme-1') || themes[0];
+      const t = themes.find(x => x.is_default) || themes[0];
       return absRoute(canonicalRoute(t));
     } catch (_) {
-      return absRoute(THEME_MAP['theme-1'].route);
+      return absRoute('themes/theme-1/2.html');
     }
   }
   window.midadChooseTheme = choose;
@@ -159,22 +159,26 @@
     state.isAdmin = ['admin', 'super_admin'].includes(state.profile?.role);
     await loadThemes();
 
-    // Only assigned users are redirected. Admin previewing/switching themes is never redirected by this check.
-    if (!state.isAdmin) {
-      try {
-        const { data: pref } = await client.from('user_theme_preferences').select('theme_id').eq('user_id', s.user.id).maybeSingle();
-        if (pref?.theme_id) {
-          const t = state.themes.find(x => String(x.id) === String(pref.theme_id));
-          if (t) {
-            const targetKey = canonicalKey(t.theme_key);
-            const currentKey = currentThemeKey();
-            if (targetKey !== currentKey) {
-              location.replace(absRoute(canonicalRoute(t)));
-              return;
-            }
-          }
-        }
-      } catch (_) {}
+    // Route every authenticated user to their assigned theme; otherwise use theme-1 as the global default.
+    // No separate/default theme is used anymore.
+    try {
+      const { data: pref } = await client.from('user_theme_preferences').select('theme_id').eq('user_id', s.user.id).maybeSingle();
+      let target = null;
+      if (pref?.theme_id) {
+        target = state.themes.find(x => String(x.id) === String(pref.theme_id)) || null;
+      }
+      if (!target) {
+        target = state.themes.find(x => canonicalKey(x.theme_key) === 'theme-1') || state.themes.find(x => x.is_default) || state.themes[0];
+      }
+      const currentKey = currentThemeKey();
+      const targetKey = target ? canonicalKey(target.theme_key) : 'theme-1';
+      if (target && targetKey !== currentKey) {
+        location.replace(absRoute(canonicalRoute(target)));
+        return;
+      }
+    } catch (_) {
+      if (currentThemeKey() === 'theme-1') { /* already on the global default */ }
+      else { location.replace(absRoute('themes/theme-1/2.html')); return; }
     }
 
     if (state.isAdmin) { setupAdminUI(); observeThemeButton(); }
@@ -391,7 +395,7 @@
   }
 
   function previewArt(t) {
-    const k = canonicalKey(t?.theme_key || 'theme-1');
+    const k = canonicalKey(t?.theme_key || 'default');
     if (k === 'theme-1') return `<div class="midad-preview-art art-theme-1"><div class="pv-nav"><b></b><span></span><span></span><span></span></div><div class="pv-canvas"><div class="pv-hero"><i></i><i></i></div><div class="pv-cards"><i></i><i></i><i></i></div></div></div>`;
     if (k === 'theme-2') return `<div class="midad-preview-art art-theme-3"><div class="pv-top"><b></b><span></span><span></span><em></em></div><div class="pv-hero"><i></i><b></b></div><div class="pv-grid"><i></i><i></i><i></i></div></div>`;
     if (k === 'theme-3') return `<div class="midad-preview-art art-theme-2"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-layout"><div class="pv-side"><i></i><i></i><i></i></div><div class="pv-stack"><i></i><i></i></div></div></div>`;
@@ -403,7 +407,7 @@
     if (k === 'theme-baby-blue') return `<div class="midad-preview-art art-baby-blue"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-banner"><i></i><b></b></div><div class="pv-grid"><i></i><i></i><i></i></div></div>`;
     if (k === 'theme-aurora-glass') return `<div class="midad-preview-art art-aurora-glass"><div class="pv-glass-top"><b></b><span></span><em></em></div><div class="pv-glass-body"><div class="pv-glass-card"><i></i><i></i><i></i></div><div class="pv-glass-side"><i></i><i></i></div></div></div>`;
     if (k === 'theme-warda-pink') return `<div class="midad-preview-art art-warda-pink"><div class="pv-pink-top"><b></b><span></span><span></span></div><div class="pv-pink-hero"><i></i><b></b></div><div class="pv-pink-cards"><i></i><i></i><i></i></div></div>`;
-    return `<div class="midad-preview-art art-theme-1"><div class="pv-nav"><b></b><span></span><span></span><span></span></div><div class="pv-canvas"><div class="pv-hero"><i></i><i></i></div><div class="pv-cards"><i></i><i></i><i></i></div></div></div>`;
+    return `<div class="midad-preview-art art-default"><div class="pv-top"><b></b><span></span><span></span></div><div class="pv-layout"><div class="pv-side"><i></i><i></i><i></i></div><div class="pv-main"><i></i><i></i><i></i></div></div></div>`;
   }
 
   async function openThemePicker(mode) {
