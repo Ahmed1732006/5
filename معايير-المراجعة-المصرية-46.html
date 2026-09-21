@@ -106,9 +106,8 @@ function matches(s){
 }
 function card(s){
  const c=category(s);
- const icon=c==="review"?"◌":c==="assurance"?"◈":c==="related"?"◇":c==="quality"?"✦":"✓";
  return '<button class="card" data-code="'+esc(codeKey(s.code))+'" onclick="openStandard(\''+esc(codeKey(s.code))+'\')">'+
-   '<span class="num">'+icon+'</span>'+
+   '<span class="num">'+esc(s.code)+'</span>'+
    '<span><span class="ctitle">المعيار '+esc(s.code)+' — '+esc(s.name)+'</span><br><span class="cgroup">'+esc(s.group)+'</span><br>'+badge(s)+'</span>'+
    '<span class="arrow">←</span></button>';
 }
