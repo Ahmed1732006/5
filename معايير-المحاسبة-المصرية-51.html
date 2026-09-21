@@ -5,70 +5,126 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>موسوعة معايير المحاسبة المصرية | 51 معيارًا</title>
 <style>
-:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#526071;--line:#d8dee8;--primary:#4f46e5;--primary2:#7c3aed;--soft:#eef2ff;--good:#047857;--goodBg:#ecfdf5;--warn:#b45309;--warnBg:#fff7ed;--danger:#b91c1c;--dangerBg:#fef2f2;--info:#0369a1;--infoBg:#eff6ff;--shadow:0 14px 40px rgba(24,32,52,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.8}button,input{font:inherit}.wrap{max-width:1320px;margin:auto;padding:18px}
-.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#171b30 0%,#4338ca 52%,#7c3aed 100%);color:#fff;border-radius:28px;padding:34px;margin-bottom:16px;box-shadow:var(--shadow)}
-.hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);left:-70px;bottom:-110px}.hero h1{position:relative;z-index:1;margin:0 0 6px;font-size:clamp(26px,4vw,42px);letter-spacing:-.5px}.hero p{position:relative;z-index:1;max-width:900px;margin:4px 0 0;color:#f5f3ff;line-height:2}
-.metaRow{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px;position:relative;z-index:1}.heroMeta{padding:7px 11px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.12);border-radius:999px;font-weight:800;font-size:13px}
-.toolbar{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:13px;display:flex;gap:11px;flex-wrap:wrap;margin-bottom:16px;box-shadow:0 8px 24px rgba(24,32,52,.04)}
-.search{flex:1;min-width:260px;border:1px solid #cbd5e1;background:#fff;color:var(--ink);padding:13px 15px;border-radius:14px;outline:none}.search:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.12)}.filters{display:flex;gap:8px;flex-wrap:wrap}.filterBtn,.backBtn,.printBtn{border:1px solid #cbd5e1;background:#fff;color:#273244;border-radius:12px;padding:10px 13px;font-weight:900;cursor:pointer}.filterBtn.active{background:var(--primary);border-color:var(--primary);color:#fff}.filterBtn:hover,.backBtn:hover,.printBtn:hover{border-color:var(--primary)}
-.homeGrid{display:grid;grid-template-columns:390px 1fr;gap:16px}.panel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 24px rgba(24,32,52,.04);overflow:hidden}
-.listHead{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.listHead b{font-size:16px}.count{background:#eef2ff;color:#3730a3;padding:4px 9px;border-radius:999px;font-weight:900;font-size:12px}
-.list{max-height:72vh;overflow:auto;padding:9px}.item{width:100%;display:grid;grid-template-columns:58px 1fr;gap:11px;text-align:right;margin:0 0 8px;padding:10px;border:1px solid transparent;border-radius:15px;background:#fff;color:var(--ink);cursor:pointer}.item:hover{background:#f8fafc;border-color:#dbe3ee}.item.active{background:#eef2ff;border-color:#c7d2fe}.num{display:grid;place-items:center;min-height:54px;background:#eef2f7;color:#172033;border-radius:13px;font-weight:900;font-size:17px}.item.active .num{background:var(--primary);color:#fff}.itemTitle{font-weight:900;line-height:1.55}.itemSub{color:#5b6778;font-size:12px;margin-top:3px}.statusDot{display:inline-flex;align-items:center;gap:5px;font-weight:900}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#94a3b8}.dot.live{background:#059669}.dot.updated{background:#4f46e5}.dot.new{background:#0284c7}.dot.replaced{background:#c2410c}.dot.gap{background:#64748b}
-.detail{padding:25px}.detail.hidden,.home.hidden{display:none}.detailTop{display:flex;gap:14px;align-items:flex-start;justify-content:space-between}.titleWrap{display:flex;gap:15px;align-items:flex-start}.bigNum{min-width:78px;height:78px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-radius:22px;font-size:28px;font-weight:900;box-shadow:0 10px 25px rgba(79,70,229,.24)}h2{margin:0 0 2px;font-size:clamp(24px,3vw,34px);line-height:1.45}.subtitle{color:#596579;font-weight:800;margin-top:3px}.actions{display:flex;gap:8px;flex-wrap:wrap}.detailGrid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:18px}.infoCard{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}.infoCard.full{grid-column:1/-1}.infoCard h3{margin:0 0 8px;font-size:16px}.infoCard p{margin:0;color:#2e3a4b;line-height:2}.infoCard ul{margin:8px 0 0;padding-right:20px;color:#2e3a4b}.infoCard li{margin:5px 0}.timeline{border-right:3px solid #c7d2fe;padding-right:15px}.event{position:relative;margin:0 0 15px;padding-right:10px}.event:before{content:"";position:absolute;right:-22px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--primary);border:3px solid #eef2ff}.event b{color:#3730a3}.pill{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:900;margin:2px;background:#f1f5f9;color:#334155;border:1px solid #e2e8f0}.pill.good{background:var(--goodBg);color:var(--good);border-color:#a7f3d0}.pill.warn{background:var(--warnBg);color:var(--warn);border-color:#fed7aa}.pill.danger{background:var(--dangerBg);color:var(--danger);border-color:#fecaca}.pill.info{background:var(--infoBg);color:var(--info);border-color:#bae6fd}.note{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:15px;padding:13px;color:#475569}.sourceBox{background:#f9fafb;border:1px solid #dbe2ea;border-radius:16px;padding:14px}.sourceBox a{color:#1d4ed8;text-decoration:none;font-weight:900}.sourceBox a:hover{text-decoration:underline}
-.detailPage{display:none}.detailPage.show{display:block}.pageBar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.breadcrumb{color:#64748b;font-size:13px;font-weight:800}.empty{padding:35px;text-align:center;color:#5b6778}
-@media(max-width:950px){.homeGrid{grid-template-columns:1fr}.list{max-height:45vh}.detailGrid{grid-template-columns:1fr}.infoCard.full{grid-column:auto}.detailTop{flex-direction:column}.actions{width:100%}.pageBar{align-items:flex-start;flex-direction:column}.titleWrap{width:100%}}
-@media(max-width:560px){.wrap{padding:10px}.hero{padding:24px 20px;border-radius:22px}.toolbar{padding:10px}.search{min-width:100%}.filters{width:100%}.filterBtn{flex:1}.detail{padding:17px}.titleWrap{gap:10px}.bigNum{min-width:60px;height:60px;border-radius:17px;font-size:22px}h2{font-size:22px}}
-@media print{body{background:#fff}.wrap{max-width:none;padding:0}.hero,.toolbar,.homeGrid,.pageBar .actions{display:none!important}.detailPage{display:block!important}.panel{box-shadow:none;border:0}.detail{padding:0}}
+:root{
+ --bg:#f6f8fc;--card:#fff;--ink:#121a2a;--muted:#5c687a;--line:#dce3ed;
+ --primary:#4f46e5;--primary2:#7c3aed;--soft:#eef2ff;--good:#047857;
+ --goodBg:#ecfdf5;--warn:#b45309;--warnBg:#fff7ed;--info:#0369a1;--infoBg:#eff6ff;
+ --shadow:0 12px 34px rgba(15,23,42,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.85}
+button,input{font:inherit}
+.wrap{max-width:1240px;margin:auto;padding:18px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#161b2f,#4338ca 55%,#7c3aed);color:#fff;border-radius:28px;padding:32px 30px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{position:relative;z-index:1;margin:0 0 5px;font-size:clamp(26px,4vw,41px);line-height:1.35}
+.hero p{position:relative;z-index:1;margin:0;max-width:930px;color:#f4f3ff;line-height:2}
+.hero:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.08);left:-70px;bottom:-120px}
+.metaRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}
+.heroMeta{padding:6px 11px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.11);border-radius:999px;font-size:12px;font-weight:900}
+.toolbar{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px;box-shadow:0 7px 22px rgba(15,23,42,.04)}
+.search{flex:1;min-width:250px;border:1px solid #cbd5e1;color:var(--ink);background:#fff;padding:13px 15px;border-radius:14px;outline:none}
+.search::placeholder{color:#758195}
+.search:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.12)}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filterBtn,.backBtn,.printBtn{border:1px solid #cbd5e1;background:#fff;color:#243044;border-radius:12px;padding:10px 12px;font-weight:900;cursor:pointer;transition:.18s}
+.filterBtn:hover,.backBtn:hover,.printBtn:hover{border-color:var(--primary);transform:translateY(-1px)}
+.filterBtn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.listPanel{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 25px rgba(15,23,42,.04);overflow:hidden}
+.listHead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 17px;border-bottom:1px solid var(--line)}
+.listHead b{font-size:17px}
+.count{background:var(--soft);color:#3730a3;border:1px solid #d9ddff;padding:4px 9px;border-radius:999px;font-weight:900;font-size:12px}
+.list{padding:10px}
+.gridList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.standardCard{width:100%;min-height:94px;border:1px solid #e1e7f0;border-radius:18px;background:#fff;color:var(--ink);padding:12px;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;text-align:right;cursor:pointer;transition:.18s;box-shadow:0 3px 12px rgba(15,23,42,.025)}
+.standardCard:hover{border-color:#c7d2fe;background:#fbfbff;transform:translateY(-2px);box-shadow:0 10px 22px rgba(79,70,229,.09)}
+.stdNum{width:64px;height:64px;display:grid;place-items:center;border-radius:17px;background:#eef2f7;color:#152038;font-size:20px;font-weight:900}
+.standardCard:hover .stdNum{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}
+.stdMain{min-width:0}
+.stdTitle{font-weight:900;font-size:15px;line-height:1.6}
+.stdTopic{font-size:12px;color:var(--muted);margin-top:2px}
+.stdArrow{font-size:20px;color:#94a3b8;font-weight:900}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:900;white-space:nowrap;border:1px solid #e2e8f0;background:#f8fafc;color:#475569}
+.pill.good{background:var(--goodBg);color:var(--good);border-color:#a7f3d0}
+.pill.warn{background:var(--warnBg);color:var(--warn);border-color:#fed7aa}
+.pill.info{background:var(--infoBg);color:var(--info);border-color:#bae6fd}
+.dot{width:7px;height:7px;border-radius:50%;background:#64748b}
+.dot.live{background:#059669}.dot.updated{background:#4f46e5}.dot.new{background:#0284c7}.dot.replaced{background:#c2410c}.dot.gap{background:#64748b}
+.empty{padding:38px;text-align:center;color:#64748b;font-weight:800}
+.detailPage{display:none}.detailPage.show{display:block}
+.pageBar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.breadcrumb{font-size:13px;color:#667085;font-weight:900}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.detailPanel{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.detail{padding:26px}
+.detailHeader{padding-bottom:18px;border-bottom:1px solid var(--line)}
+.titleWrap{display:flex;gap:15px;align-items:flex-start}
+.bigNum{min-width:80px;height:80px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-radius:22px;font-size:29px;font-weight:900;box-shadow:0 13px 28px rgba(79,70,229,.22)}
+h2{margin:0;font-size:clamp(24px,3vw,35px);line-height:1.45}
+.subtitle{font-size:17px;color:#4f5d70;font-weight:900;margin-top:1px}
+.detailStatus{margin-top:8px}
+.detailGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.infoCard{border:1px solid var(--line);border-radius:18px;padding:17px;background:#fff}
+.infoCard.full{grid-column:1/-1}
+.infoCard h3{margin:0 0 8px;font-size:17px}
+.infoCard p{margin:0;color:#2f3a4b;line-height:2}
+.infoCard ul{margin:7px 0 0;padding-right:20px;color:#2f3a4b}
+.infoCard li{margin:5px 0}
+.timeline{border-right:3px solid #c7d2fe;padding-right:15px;margin-top:8px}
+.event{position:relative;margin-bottom:15px;padding-right:10px}
+.event:last-child{margin-bottom:0}
+.event:before{content:"";position:absolute;right:-22px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--primary);border:3px solid #eef2ff}
+.event b{color:#3730a3}
+.note{margin-top:12px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:15px;padding:12px;color:#475569}
+.sourceBox{margin-top:15px;background:#f8fafc;border:1px solid #dbe2ea;border-radius:16px;padding:14px}
+.sourceBox a{color:#1d4ed8;font-weight:900;text-decoration:none}.sourceBox a:hover{text-decoration:underline}
+@media(max-width:900px){.gridList{grid-template-columns:1fr}.detailGrid{grid-template-columns:1fr}.infoCard.full{grid-column:auto}.pageBar{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.wrap{padding:10px}.hero{padding:23px 19px;border-radius:22px}.toolbar{padding:10px}.search{min-width:100%}.filterBtn{flex:1}.list{padding:8px}.standardCard{grid-template-columns:55px 1fr auto;gap:9px;min-height:84px}.stdNum{width:55px;height:55px;font-size:17px;border-radius:15px}.stdTitle{font-size:14px}.pill{font-size:10px;padding:4px 6px}.detail{padding:17px}.bigNum{min-width:61px;height:61px;border-radius:17px;font-size:22px}h2{font-size:22px}.subtitle{font-size:14px}}
+@media print{body{background:#fff}.pageBar{display:none}.detailPage{display:block!important}.detailPanel{border:0;box-shadow:none}.detail{padding:0}.wrap{padding:0}.home{display:none!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <section class="hero">
-    <h1>📚 موسوعة معايير المحاسبة المصرية</h1>
-    <p>موسوعة تفاعلية للمذاكرة والتصفح: اختر أي معيار لفتح <b>صفحة تفاصيل كاملة</b> فيها رقم المعيار واسمه معًا، فكرة المعيار، ماذا يعالج، أهم النقاط، مثال مبسط، تاريخ الإصدار وأبرز التعديلات.</p>
-    <div class="metaRow">
-      <span class="heroMeta">51 رقمًا في الموسوعة</span>
-      <span class="heroMeta">صفحات تفاصيل مستقلة داخل الموقع</span>
-      <span class="heroMeta">مُحسّن للموبايل والكمبيوتر</span>
-      <span class="heroMeta">بيانات مرجعية + شرح تعليمي</span>
+<section class="hero">
+  <h1>📚 موسوعة معايير المحاسبة المصرية</h1>
+  <p>51 معيارًا في واجهة مرتبة وسهلة للمذاكرة. اضغط على أي معيار لفتح <b>صفحة تفاصيله فقط</b> بكل المعلومات والشرح والتحديثات.</p>
+  <div class="metaRow">
+    <span class="heroMeta">51 معيارًا</span>
+    <span class="heroMeta">صفحة مستقلة لكل معيار</span>
+    <span class="heroMeta">بحث وفلاتر</span>
+    <span class="heroMeta">مناسب للموبايل والكمبيوتر</span>
+  </div>
+</section>
+
+<main id="home" class="home">
+  <div class="toolbar">
+    <input id="q" class="search" autocomplete="off" placeholder="🔎 ابحث برقم المعيار أو اسمه أو موضوعه...">
+    <div id="filters" class="filters">
+      <button class="filterBtn active" data-f="all">الكل</button>
+      <button class="filterBtn" data-f="current">ساري</button>
+      <button class="filterBtn" data-f="updated">مُحدّث</button>
+      <button class="filterBtn" data-f="new">مضاف</button>
+      <button class="filterBtn" data-f="replaced">مستبدل</button>
+      <button class="filterBtn" data-f="gap">أرقام غير مستخدمة</button>
     </div>
+  </div>
+
+  <section class="listPanel">
+    <div class="listHead"><b>📑 قائمة المعايير</b><span id="count" class="count"></span></div>
+    <div id="list" class="list"><div class="gridList"></div></div>
   </section>
+</main>
 
-  <main id="home" class="home">
-    <div class="toolbar">
-      <input id="q" class="search" autocomplete="off" placeholder="🔎 ابحث برقم المعيار أو الاسم أو موضوعه...">
-      <div id="filters" class="filters">
-        <button class="filterBtn active" data-f="all">الكل</button>
-        <button class="filterBtn" data-f="current">ساري</button>
-        <button class="filterBtn" data-f="updated">مُحدّث</button>
-        <button class="filterBtn" data-f="new">مضاف</button>
-        <button class="filterBtn" data-f="replaced">مستبدل</button>
-        <button class="filterBtn" data-f="gap">رقم غير مستخدم</button>
-      </div>
+<main id="detailPage" class="detailPage">
+  <div class="pageBar">
+    <div class="breadcrumb">الموسوعة ← المعايير ← تفاصيل المعيار</div>
+    <div class="actions">
+      <button class="backBtn" id="backBtn">← كل المعايير</button>
+      <button class="printBtn" id="printBtn">🖨️ طباعة</button>
     </div>
-
-    <div class="homeGrid">
-      <section class="panel">
-        <div class="listHead"><b>قائمة المعايير</b><span id="count" class="count"></span></div>
-        <div id="list" class="list"></div>
-      </section>
-      <section class="panel">
-        <div id="preview" class="detail"></div>
-      </section>
-    </div>
-  </main>
-
-  <main id="detailPage" class="detailPage">
-    <div class="pageBar">
-      <div class="breadcrumb">الموسوعة ← المعايير ← صفحة التفاصيل</div>
-      <div class="actions">
-        <button class="backBtn" id="backBtn">← الرجوع إلى قائمة المعايير</button>
-        <button class="printBtn" id="printBtn">🖨️ طباعة الصفحة</button>
-      </div>
-    </div>
-    <section class="panel"><div id="detail" class="detail"></div></section>
-  </main>
+  </div>
+  <section class="detailPanel"><div id="detail" class="detail"></div></section>
+</main>
 </div>
 <script>
 const standards = [
@@ -127,56 +183,84 @@ const standards = [
 
 const statusClass={current:"live",updated:"updated",new:"new",replaced:"replaced",gap:"gap"};
 const statusPill={current:"good",updated:"info",new:"info",replaced:"warn",gap:""};
-let selected=1,filter="all";
-const q=document.getElementById("q"),list=document.getElementById("list"),count=document.getElementById("count"),preview=document.getElementById("preview"),detail=document.getElementById("detail"),home=document.getElementById("home"),detailPage=document.getElementById("detailPage");
+let filter="all";
 
-function escapeHtml(v){return String(v).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));}
+const q=document.getElementById("q");
+const list=document.getElementById("list");
+const count=document.getElementById("count");
+const detail=document.getElementById("detail");
+const home=document.getElementById("home");
+const detailPage=document.getElementById("detailPage");
+
+function escapeHtml(v){
+  return String(v).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+}
+function badge(s){
+  return '<span class="pill '+(statusPill[s.kind]||'')+'"><span class="dot '+statusClass[s.kind]+'"></span>'+escapeHtml(s.status)+'</span>';
+}
 function matches(s){
   const t=q.value.trim().toLowerCase();
-  const hay=(s.id+" "+s.name+" "+s.topic+" "+s.purpose+" "+s.points.join(" ")+" "+s.changes.map(x=>x.join(" ")).join(" ")).toLowerCase();
-  const okText=!t||hay.includes(t);
-  const okFilter=filter==="all"||filter===s.kind;
-  return okText&&okFilter;
+  const hay=(s.id+" "+s.name+" "+s.topic+" "+s.purpose+" "+s.points.join(" ")+" "+s.example+" "+s.changes.map(x=>x.join(" ")).join(" ")).toLowerCase();
+  return (!t||hay.includes(t)) && (filter==="all"||filter===s.kind);
 }
-function badge(s){return '<span class="pill '+(statusPill[s.kind]||'')+'"><span class="dot '+statusClass[s.kind]+'"></span>'+escapeHtml(s.status)+'</span>';}
 function card(s){
-  return '<button class="item '+(s.id===selected?'active':'')+'" onclick="openStandard('+s.id+')"><span class="num">'+s.id+'</span><span><span class="itemTitle">معيار رقم '+s.id+' — '+escapeHtml(s.name)+'</span><br><span class="itemSub"><span class="statusDot"><span class="dot '+statusClass[s.kind]+'"></span>'+escapeHtml(s.topic)+'</span></span></span></button>';
-}
-function previewHtml(s){
- return '<div class="detailTop"><div class="titleWrap"><div class="bigNum">'+s.id+'</div><div><h2>معيار المحاسبة المصري رقم '+s.id+'</h2><div class="subtitle">'+escapeHtml(s.name)+'</div>'+badge(s)+'</div></div></div>'+
- '<div class="detailGrid"><article class="infoCard full"><h3>🎯 ماذا يعالج المعيار؟</h3><p>'+escapeHtml(s.purpose)+'</p></article>'+
- '<article class="infoCard"><h3>🧠 أهم النقاط</h3><ul>'+s.points.map(x=>'<li>'+escapeHtml(x)+'</li>').join('')+'</ul></article>'+
- '<article class="infoCard"><h3>💡 مثال مبسط</h3><p>'+escapeHtml(s.example)+'</p></article>'+
- '<article class="infoCard full"><h3>🕘 تاريخ الإصدار والتعديلات</h3><div class="timeline">'+s.changes.map(x=>'<div class="event"><b>'+escapeHtml(x[0])+'</b><div>'+escapeHtml(x[1])+'</div></div>').join('')+'</div></article>'+
- '<article class="infoCard full"><h3>📚 للمذاكرة</h3><p>'+escapeHtml(s.exam)+'</p><div class="note" style="margin-top:10px">⚠️ الشرح الموجود هنا تعليمي ومبسّط، وليس نصًا قانونيًا أو بديلًا عن النسخة الرسمية الكاملة للمعيار.</div></article></div>';
+  return '<button class="standardCard" onclick="openStandard('+s.id+')">'+
+    '<span class="stdNum">'+s.id+'</span>'+
+    '<span class="stdMain">'+
+      '<span class="stdTitle">معيار المحاسبة المصري رقم '+s.id+' — '+escapeHtml(s.name)+'</span>'+
+      '<br><span class="stdTopic">'+escapeHtml(s.topic)+'</span><div style="margin-top:4px">'+badge(s)+'</div>'+
+    '</span><span class="stdArrow">←</span></button>';
 }
 function renderList(){
- const arr=standards.filter(matches);
- count.textContent=arr.length+' معيار';
- list.innerHTML=arr.length?arr.map(card).join(''):'<div class="empty">لا توجد نتائج مطابقة 🔎</div>';
+  const arr=standards.filter(matches);
+  count.textContent=arr.length+" معيار";
+  list.innerHTML=arr.length?'<div class="gridList">'+arr.map(card).join("")+'</div>':'<div class="empty">لا توجد نتائج مطابقة 🔎</div>';
 }
-function renderPreview(){
- const s=standards.find(x=>x.id===selected)||standards[0];
- preview.innerHTML=previewHtml(s)+'<div class="actions" style="margin-top:16px"><button class="filterBtn active" onclick="openStandard('+s.id+')">فتح صفحة المعيار ←</button></div>';
+function detailHtml(s){
+ return '<div class="detailHeader">'+
+   '<div class="titleWrap">'+
+     '<div class="bigNum">'+s.id+'</div>'+
+     '<div><h2>معيار المحاسبة المصري رقم '+s.id+'</h2><div class="subtitle">'+escapeHtml(s.name)+'</div><div class="detailStatus">'+badge(s)+'</div></div>'+
+   '</div>'+
+ '</div>'+
+ '<div class="detailGrid">'+
+   '<article class="infoCard full"><h3>🎯 ماذا يعالج المعيار؟</h3><p>'+escapeHtml(s.purpose)+'</p></article>'+
+   '<article class="infoCard"><h3>🧠 أهم النقاط</h3><ul>'+s.points.map(x=>'<li>'+escapeHtml(x)+'</li>').join("")+'</ul></article>'+
+   '<article class="infoCard"><h3>💡 مثال مبسط</h3><p>'+escapeHtml(s.example)+'</p></article>'+
+   '<article class="infoCard full"><h3>🕘 تاريخ الإصدار والتعديلات</h3><div class="timeline">'+s.changes.map(x=>'<div class="event"><b>'+escapeHtml(x[0])+'</b><div>'+escapeHtml(x[1])+'</div></div>').join("")+'</div></article>'+
+   '<article class="infoCard full"><h3>📚 للمذاكرة</h3><p>'+escapeHtml(s.exam)+'</p><div class="note">⚠️ الشرح هنا تعليمي ومبسط، ولا يحل محل النص الرسمي الكامل للمعيار والقرارات المنظمة له.</div></article>'+
+ '</div>'+
+ '<div class="sourceBox">🔗 <a target="_blank" rel="noopener" href="https://fra.gov.eg/معايير-المحاسبة-المصرية/">المصدر الرسمي: الهيئة العامة للرقابة المالية — معايير المحاسبة المصرية</a></div>';
 }
 function openStandard(id){
- selected=id;
- location.hash='standard-'+id;
- showDetail();
+  location.hash="standard-"+id;
 }
 function showDetail(){
- const id=Number((location.hash.match(/standard-(\d+)/)||[])[1]);
- const s=standards.find(x=>x.id===id);
- if(!s){location.hash='';return showHome();}
- selected=s.id; detail.innerHTML=previewHtml(s);
- home.classList.add('hidden');detailPage.classList.add('show');window.scrollTo({top:0,behavior:'instant'});renderList();
+  const match=location.hash.match(/standard-(\d+)/);
+  const s=match?standards.find(x=>x.id===Number(match[1])):null;
+  if(!s){showHome();return;}
+  detail.innerHTML=detailHtml(s);
+  home.style.display="none";
+  detailPage.classList.add("show");
+  window.scrollTo(0,0);
 }
-function showHome(){detailPage.classList.remove('show');home.classList.remove('hidden');renderPreview();renderList();window.scrollTo({top:0,behavior:'instant'});}
+function showHome(){
+  detailPage.classList.remove("show");
+  home.style.display="";
+  renderList();
+  window.scrollTo(0,0);
+}
 document.getElementById("backBtn").onclick=()=>{history.pushState({},'',location.pathname+location.search);showHome();};
 document.getElementById("printBtn").onclick=()=>window.print();
-document.querySelectorAll("#filters .filterBtn").forEach(btn=>btn.onclick=()=>{document.querySelectorAll("#filters .filterBtn").forEach(x=>x.classList.remove("active"));btn.classList.add("active");filter=btn.dataset.f;renderList();});
+document.querySelectorAll("#filters .filterBtn").forEach(btn=>btn.onclick=()=>{
+  document.querySelectorAll("#filters .filterBtn").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  filter=btn.dataset.f;
+  renderList();
+});
 q.oninput=renderList;
 window.addEventListener("hashchange",()=>location.hash.startsWith("#standard-")?showDetail():showHome());
-if(location.hash.startsWith("#standard-"))showDetail();else showHome();
+renderList();
+if(location.hash.startsWith("#standard-"))showDetail();
 </script></body>
 </html>
